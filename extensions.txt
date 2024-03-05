@@ -1,0 +1,5 @@
+bookmarks
+ Eslint
+  Prettier Code Formatter
+  power mode
+  
