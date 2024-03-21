@@ -67,5 +67,22 @@
 // let soma = n1 + n2;
 // console.log(soma > 20 ? soma + 8 : soma - 5);
 
-let inss = 2500
-console.log("Desconto: ", inss <= 600 ? "isento" : inss <= 1200 ? inss*0.2 : inss <= 2000 ? inss*0.25 : inss*0.3);
+// let inss = 2500
+// console.log("Desconto: ", inss <= 600 ? "isento" : inss <= 1200 ? inss*0.2 : inss <= 2000 ? inss*0.25 : inss*0.3);
+
+let estado = "RS";
+switch (estado) {
+  case "SP":
+    console.log("paulista");
+    break;
+  case "RJ":
+    console.log("Carioca");
+    break;
+  case "MG":
+    console.log("mineiro");
+    break;
+  default:
+    console.log("outro");
+    break;
+}
+console.log("Estado: ", estado === "SP" ? "paulista" : estado === "RJ" ? "Carioca" : estado === "MG" ? "mineiro" : "outro");
