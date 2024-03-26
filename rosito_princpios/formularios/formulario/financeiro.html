@@ -9,36 +9,60 @@
 </head>
 
 <body>
+    <h1>Formulário</h1>
+    <a href="index.html">index.html</a>
+    <br><br>
     <form action="submit.php" method="post">
         <fieldset>
-            <legend>Informações de Contato</legend>
+            <legend>Dados Pessoais</legend>
             <label for="name">Nome:</label>
-            <input type="text" id="name" name="name" required><br>
-            <br>
-            <label for="age">Idade:</label>
-            <input type="number" id="age" name="age" min="0" max="130" step="1" required>
-            <br>
-            <p>Sexo:</p>
-            <input type="radio" id="masculino" name="sexo" value="m">
-            <label for="masculino">Masculino</label><br>
-            <input type="radio" id="Feminino" name="sexo" value="f">
-            <label for="Feminino">Feminino</label><br>
-  
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="ende">Endereço:</label>
+            <input type="text" id="ende" name="ende" required><br><br>
+            <label for="cidade">Cidade:</label>
+            <input type="text" id="cidade" name="cidade" required><br>
             <p>Estado:</p>
             <select name="estado" id="estado" required>
                 <option value="">Selecione uma opção</option>
-                <option value="RS">RS</option>
+                <option value="RS">Rio Grande do Sul</option>
                 <option value="SP">SP</option>
                 <option value="RJ">RJ</option>
                 <option value="AM">AM</option>
+                <option value="outros">Outros</option>
             </select>
-            <br><br>
-
-            <label for="agree">Quer receber news:</label>
-            <input type="checkbox" id="agree" name="terms" value="agree"><br>
-
-            <input type="submit" value="Enviar">
+            <br>
         </fieldset>
+        <fieldset>
+            <legend>Dados Profissionaos</legend>
+            <p>Natureza do Cargo:</p>
+            <input type="radio" id="g" name="cargo" value="m">
+            <label for="g">Gerência</label>
+            <input type="radio" id="Feminino" name="cargo" value="f">
+            <label for="f">Financeiro</label>
+            <input type="radio" id="r" name="cargo" value="m">
+            <label for="r">Recepção</label>
+            <input type="radio" id="a" name="cargo" value="m">
+            <label for="a">Adinistrativo</label>
+            <input type="radio" id="j" name="cargo" value="m">
+            <label for="j">Juridico</label>
+            <br>
+            <p>Área de interesse:</p>
+            <input type="checkbox" id="comp" name="comp" value="comp">
+            <label for="comp">Computação</label>
+            <input type="checkbox" id="bio" name="bio" value="bio">
+            <label for="bio">Biologia</label>
+            <input type="checkbox" id="meio" name="meio" value="meio">
+            <label for="meio">Meio Ambiente</label>
+            <input type="checkbox" id="eng" name="eng" value="eng">
+            <label for="eng">Engenharia</label>
+            <input type="checkbox" id="hist" name="hist" value="hist">
+            <label for="hist">História</label>
+            <br><br>
+            <label for="mini">Mini-curriculo: </label>
+            <textarea name="mini" id="mini" cols="50" rows="2"></textarea>
+        </fieldset>
+        <br>
+        <input type="submit" value="Enviar Formulário"> <input type="reset" name="reset" id="reset">
     </form>
 
 </body>
