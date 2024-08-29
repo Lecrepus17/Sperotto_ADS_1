@@ -7,4 +7,3 @@ let c = Number(lines[2]);
 let d = Number(lines[3]);
 let x = (a * b - c * d)
 console.log('DIFERENCA = ' + x);
-
