@@ -1,12 +1,16 @@
 var input = require("fs").readFileSync("dev/stdin", "utf8");
 var lines = input.split("\n");
-numeroTotalLidos = lines[0];
+
+
+numeroTotalLidos = Number(lines[0]);
 numeros = lines[1].split(" ");
-menor = null
-posicao = null
+menor = numeros[0]
+posicao = 0
+
+
 for (i = 0; i < numeroTotalLidos; i++) {
-  if(menor > numeros[i]){
-    menor = numeros[i]
+  if(menor >  Number(numeros[i])){
+    menor =  Number(numeros[i])
     posicao = i
   }
 }

@@ -14,17 +14,20 @@ lines.forEach(function (numero) {
     par.forEach(function (n, i) {
       console.log("par[" + i + "] = " + n);
     });
-    par = []
+    par = [];
   } else if (impar.length == 5) {
     impar.forEach(function (n, i) {
       console.log("impar[" + i + "] = " + n);
     });
-    impar = []
+    impar = [];
   }
-})
+});
 impar.forEach(function (n, i) {
   console.log("impar[" + i + "] = " + n);
 });
+
 par.forEach(function (n, i) {
-  console.log("par[" + i + "] = " + n);
+  if (i != 2) {
+    console.log("par[" + i + "] = " + n);
+  }
 });
