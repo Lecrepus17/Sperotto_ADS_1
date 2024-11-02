@@ -15,7 +15,7 @@ class DoublyLinkedList {
 
   push(element) {
     const doublyNode = new DoublyNode(element);
-    if (this.head == null) {
+    if (this.isEmpty()) {
       this.head = doublyNode;
       this.tail = doublyNode;
     } else {
@@ -39,7 +39,7 @@ class DoublyLinkedList {
         } else {
           this.next = null;
         }
-      } else if (index === this.size - 1) {
+      } else if (index === this.size() - 1) {
         current = this.tail;
         this.tail = current.previous; // atribui a tail o valor anterior a ela
         this.tail.next = null;
@@ -81,18 +81,18 @@ class DoublyLinkedList {
         } else {
           this.tail = doublyNode;
         }
-      } else if (index === this.size) {
+      } else if (index === this.size()) {
         const current = this.tail;
         current.next = doublyNode;
         doublyNode.previous = current;
         this.tail = doublyNode;
       } else {
         const prev = this.getElementAt(index - 1);
-        const current = prev.next;
-        doublyNode.next = current;
+        const next = prev.next;
+        doublyNode.next = next;
         prev.next = doublyNode;
         doublyNode.previous = prev;
-        current.next.previous = doublyNode;
+        next.previous = doublyNode;
       }
       // atualiza o tamanho da lista
       this.count++;
@@ -131,13 +131,13 @@ class DoublyLinkedList {
   }
 
   toString() {
-    if (this.head == null) {
+    if (this.isEmpty()) {
       return "";
     }
     let objString = `${this.head.element}`;
     let current = this.head.next; // {3}
     for (let i = 1; i < this.size() && current != null; i++) {
-      objString = `${objString},${current.element}`;
+      objString = `${objString}, ${current.element}`;
       current = current.next;
     }
     return objString;
@@ -145,3 +145,57 @@ class DoublyLinkedList {
 }
 
 module.exports = DoublyLinkedList;
+
+// Cria uma nova lista de carros
+const listaDeCarros = new DoublyLinkedList();
+
+// Adiciona o carro "Uno Mille"
+listaDeCarros.push("Uno Mille");
+
+// Adiciona no fim da lista o carro "Corsa"
+listaDeCarros.push("Corsa");
+
+// Adiciona na posição 2 o carro "KA"
+listaDeCarros.insert("KA", 1);
+
+// Adiciona no início da lista o carro "Gol"
+listaDeCarros.insert("Gol", 0);
+
+// Imprime a lista
+console.log("Lista de Carros:", listaDeCarros.toString());
+
+// Imprime a quantidade de elementos
+console.log("Quantidade de elementos:", listaDeCarros.size());
+
+// Remove o carro da posição 3
+listaDeCarros.removeAt(2);
+
+// Imprime a lista após remoção
+console.log(
+  "Lista de Carros após remover o carro da posição 3:",
+  listaDeCarros.toString()
+);
+
+// Remove o carro do início da lista
+listaDeCarros.removeAt(0);
+
+// Imprime o primeiro carro da lista
+console.log("Primeiro carro da lista:", listaDeCarros.getHead().element);
+
+// Remove o carro do final da lista
+listaDeCarros.removeAt(listaDeCarros.size() - 1);
+
+// Verifica se o carro "KA" existe na lista
+const indexKA = listaDeCarros.indexOf("KA");
+if (indexKA !== -1) {
+  const carroKA = listaDeCarros.getElementAt(indexKA);
+  console.log("Carro encontrado:", carroKA.element);
+  console.log("Próximo carro:", carroKA.next ? carroKA.next.element : "Nenhum");
+  console.log(
+    "Carro anterior:",
+    carroKA.previous ? carroKA.previous.element : "Nenhum"
+  );
+}
+
+// Imprime novamente a lista
+console.log("Lista de Carros final:", listaDeCarros.toString());
