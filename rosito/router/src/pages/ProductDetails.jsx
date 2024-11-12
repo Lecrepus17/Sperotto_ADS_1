@@ -22,7 +22,7 @@ const products = [
 export function loader({ params }) {
   const product = products.find((p) => p.id === Number(params.id));
   if (!product) {
-    throw new Error("Produto não encontrado!");
+    throw new Error("Produto com id: " + params.id + " não encontrado!");
   }
   return product;
 }
