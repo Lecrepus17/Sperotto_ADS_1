@@ -1,0 +1,440 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: flex-start; /* Alinha o conteúdo no topo */
+  min-width: 320px;
+  min-height: 100vh; /* Garante que o body ocupe a altura da tela */
+  background-color: #f4f4f4; /* Cor de fundo opcional */
+  font-family: Arial, sans-serif;
+}
+div {
+  max-width: 1400px; /* Largura máxima do conteúdo */
+  width: 100%; /* Usa 100% da largura disponível */
+  padding: 20px;
+  box-sizing: border-box; /* Inclui o padding na largura total */
+  background-color: #fff; /* Fundo branco para o conteúdo */
+  margin-top: 20px; /* Espaçamento opcional a partir do topo */
+}
+/* Cabeçalho */
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+/* Navegação */
+nav ul {
+  list-style: none; /* Remove marcadores de lista */
+  padding: 0;
+  margin: 20px 0 0 0;
+  display: flex; /* Coloca os itens da lista em linha */
+  justify-content: center; /* Centraliza os itens de navegação */
+}
+nav ul li {
+  margin: 0 15px; /* Espaçamento entre os itens */
+}
+nav ul li a {
+  color: white;
+  text-decoration: none; /* Remove sublinhado dos links */
+  font-size: 1.2em;
+}
+nav ul li a:hover {
+  text-decoration: underline; /* Sublinha ao passar o mouse */
+}
+/* Conteúdo principal */
+main {
+  padding: 20px;
+  text-align: center;
+}
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+}
+
+/* Layout geral do produto */
+.product-card {
+  display: flex; /* Flexbox para alinhar imagem e texto lado a lado */
+  align-items: center; /* Centraliza verticalmente */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  gap: 20px; /* Espaço entre a imagem e os detalhes */
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+/* Imagem do produto */
+.product-image {
+  max-width: 150px; /* Limita a largura da imagem */
+  max-height: 150px; /* Limita a altura da imagem */
+  object-fit: contain; /* Garante que a imagem fique proporcional */
+  border-radius: 4px; /* Adiciona bordas arredondadas à imagem */
+  background-color: #f9f9f9;
+}
+
+/* Detalhes do produto */
+.product-details {
+  flex: 1; /* Faz com que os detalhes ocupem o restante do espaço */
+}
+
+.product-title {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.product-price {
+  font-size: 16px;
+  color: #28a745;
+  margin: 0 0 10px;
+}
+
+.product-link {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.product-link:hover {
+  background-color: #0056b3;
+}
+
+.product-link-edit {
+  display: inline-block;
+  padding: 8px 12px;
+  background-color: #15ff00;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.product-link-edit:hover {
+  background-color: rgb(30, 179, 0);
+}
+
+/* Estilo do container */
+.product-details-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+/* Cartão de detalhes */
+.product-details-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 600px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Imagem do produto */
+.product-details-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+  margin-bottom: 20px;
+}
+
+/* Informações do produto */
+.product-details-info {
+  text-align: center;
+}
+
+.product-details-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.product-details-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.product-details-price {
+  font-size: 20px;
+  color: #28a745;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Link para voltar */
+.product-details-back-link {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.2s;
+}
+
+.product-details-back-link:hover {
+  background-color: #0056b3;
+}
+
+.product-new-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.product-new-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.product-new-form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  resize: none;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+.product-new-submit {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.product-new-submit:hover {
+  background-color: #0056b3;
+}
+
+.product-new-error {
+  color: red;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.product-actions {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.delete-button {
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.delete-button:hover {
+  background-color: #c82333;
+}
+
+.product-edit-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5;
+  min-height: 100vh;
+}
+
+.product-edit-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.product-edit-form {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  width: 100%;
+  max-width: 500px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  resize: none;
+}
+
+.form-group textarea {
+  height: 100px;
+}
+
+.product-edit-submit {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.product-edit-submit:hover {
+  background-color: #0056b3;
+}
+
+.error-message {
+  color: red;
+  text-align: center;
+  font-size: 16px;
+}
