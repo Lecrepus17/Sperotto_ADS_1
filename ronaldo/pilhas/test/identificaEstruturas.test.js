@@ -1,4 +1,4 @@
-const identificarEstruturas = require('../identificaEstruturas')
+const identificarEstruturas = require('../js/identificaEstruturas')
 
 test("teste da classe identificadorEstruturas -> Fila",()=>{
     let vet1 = [1,1,1,2,2,2];

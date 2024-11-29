@@ -1,4 +1,4 @@
-const { Stack } = require("../menorPilha");
+const { Stack } = require("../js/menorPilha");
 
 describe("Menor da Pilha", () => {
   let stack;

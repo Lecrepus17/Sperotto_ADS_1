@@ -1,4 +1,4 @@
-const { processQueue } = require("../processQueue");
+const { processQueue } = require("../js/processQueue");
 
 describe("Fila do Supermercado", () => {
   test("Exemplo 1: deve retornar 18", () => {

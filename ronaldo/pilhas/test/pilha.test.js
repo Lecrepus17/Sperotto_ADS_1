@@ -1,4 +1,4 @@
-const { Stack } = require("../stack-obj.js");
+const { Stack } = require("../js/stack-obj.js");
 
 test("adicionar elementos na pilha", () => {
   let pilha = new Stack();
