@@ -13,25 +13,12 @@ class Queue {
     return this.elements.length === 0;
   }
 
-  // Retorna o primeiro elemento da fila
-  nextElement() {
-    if (this.isEmpty()) {
-      throw new Error("A fila está vazia");
-    }
-    return this.elements[0];
-  }
-
   // Desenfileirar
   dequeue() {
     if (this.isEmpty()) {
       throw new Error("A fila está vazia");
     }
     return this.elements.shift();
-  }
-
-  // Mostra todos os elementos
-  toString() {
-    return this.elements.join(", ");
   }
 }
 class Stack {
@@ -57,39 +44,9 @@ class Stack {
     return result;
   }
 
-  // Retorna o elemento do topo da pilha sem removê-lo
-  peek() {
-    if (this.isEmpty()) {
-      return undefined;
-    }
-    return this.items[this.count - 1];
-  }
-
   // Verifica se a pilha está vazia
   isEmpty() {
     return this.count === 0;
-  }
-
-  // Retorna o número de elementos na pilha
-  size() {
-    return this.count;
-  }
-
-  // Limpa todos os elementos da pilha
-  clear() {
-    this.itens = {};
-    this.count = 0;
-  }
-
-  toString() {
-    if (this.isEmpty()) {
-      return "";
-    }
-    let objString = `${this.items[0]}`;
-    for (let i = 1; i < this.count; i++) {
-      objString = `${objString},${this.items[i]}`; // {3}
-    }
-    return objString;
   }
 }
 
