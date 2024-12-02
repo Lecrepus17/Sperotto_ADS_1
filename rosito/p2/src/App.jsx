@@ -1,9 +1,14 @@
-import { Outlet, Link } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+
 function App() {
   return (
     <div>
       <header>
-        <h1>E-Commerce.</h1>
+        <h1>
+          <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
+            E-Commerce.
+          </Link>
+        </h1>
       </header>
       <main>
         <Outlet />
@@ -14,4 +19,5 @@ function App() {
     </div>
   );
 }
+
 export default App;

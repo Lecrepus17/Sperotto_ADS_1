@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 function ProductEdit() {
   const { id } = useParams(); // Obtém o ID do produto da URL
@@ -21,7 +21,9 @@ function ProductEdit() {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const response = await axios.get(`https://fakestoreapi.com/products/${id}`);
+        const response = await axios.get(
+          `https://fakestoreapi.com/products/${id}`
+        );
         setFormData(response.data);
       } catch (err) {
         console.error("Erro ao buscar produto:", err);
@@ -50,7 +52,7 @@ function ProductEdit() {
     try {
       await axios.put(`https://fakestoreapi.com/products/${id}`, formData);
       alert("Produto atualizado com sucesso!");
-      navigate("/"); // Redireciona para a lista de produtos
+      navigate("/products"); // Redireciona para a lista de produtos
     } catch (err) {
       console.error("Erro ao atualizar produto:", err);
       setError("Não foi possível atualizar o produto. Tente novamente.");
@@ -60,10 +62,6 @@ function ProductEdit() {
 
   if (error) {
     return <p className="error-message">{error}</p>;
-  }
-
-  if (!formData.title && !error) {
-    return <p>Carregando...</p>;
   }
 
   return (
@@ -125,7 +123,11 @@ function ProductEdit() {
             required
           />
         </div>
-        <button type="submit" className="product-edit-submit" disabled={loading}>
+        <button
+          type="submit"
+          className="product-edit-submit"
+          disabled={loading}
+        >
           {loading ? "Salvando..." : "Atualizar Produto"}
         </button>
       </form>

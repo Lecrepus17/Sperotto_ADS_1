@@ -22,15 +22,6 @@ a:hover {
   color: #77c7ff;
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: #121212;
-}
-
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -70,12 +61,13 @@ button:focus-visible {
 body {
   margin: 0;
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: flex-start; /* Alinha o conteúdo no topo */
+  justify-content: center;
+  align-items: flex-start;
   min-width: 320px;
-  min-height: 100vh; /* Garante que o body ocupe a altura da tela */
-  background-color: #f4f4f4; /* Cor de fundo opcional */
+  min-height: 100vh;
   font-family: Arial, sans-serif;
+  place-items: center;
+  background-color: #121212;
 }
 div {
   max-width: 1400px; /* Largura máxima do conteúdo */
@@ -123,7 +115,6 @@ main {
   padding: 20px;
   text-align: center;
   color: rgba(255, 255, 255, 0.87);
-
 }
 footer {
   background-color: #242424;
@@ -191,21 +182,22 @@ footer p {
 }
 
 .product-link:hover {
-  background-color: #77c7ff;
+  background-color: #ffffff;
 }
 
 .product-link-edit {
   display: inline-block;
   padding: 8px 12px;
   background-color: #2ecc71;
-  color: white;
+  color: #ddd;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.2s;
 }
 
 .product-link-edit:hover {
-  background-color: #48e585;
+  background-color: #ffffff;
+  color: #2ecc71;
 }
 
 /* Estilo do container */
@@ -372,7 +364,8 @@ footer p {
 }
 
 .delete-button:hover {
-  background-color: #ff6b61;
+  background-color: white;
+  color: #ff1900;
 }
 
 .product-edit-container {

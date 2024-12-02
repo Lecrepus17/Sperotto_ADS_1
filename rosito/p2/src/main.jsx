@@ -6,9 +6,10 @@ import "./index.css";
 import ErrorPage from "./pages/ErrorPage.jsx"; // Componente de erro personalizado;
 import Home from "./pages/Home.jsx";
 import ProductDetails from "./pages/ProductDetails";
-import Products from "./pages/Products.jsx";
-import ProductsNew from "./pages/ProductNew.jsx";
 import ProductEdit from "./pages/ProductEdit.jsx";
+import ProductsNew from "./pages/ProductNew.jsx";
+import Products from "./pages/Products.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",

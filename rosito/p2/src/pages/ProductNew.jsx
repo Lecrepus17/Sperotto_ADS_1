@@ -1,5 +1,5 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ProductsNew() {
@@ -29,10 +29,14 @@ function ProductsNew() {
     setError(null);
 
     try {
-      const response = await axios.post("https://fakestoreapi.com/products", formData);
+      const response = await axios.post(
+        "https://fakestoreapi.com/products",
+        formData
+      );
       console.log("Produto criado:", response.data);
       setLoading(false);
-      navigate("/"); // Redireciona para a lista de produtos
+      alert("Produto adicionado com suesso.");
+      navigate("/products"); // Redireciona para a lista de produtos
     } catch (err) {
       console.error("Erro ao criar produto:", err);
       setError("Ocorreu um erro ao criar o produto. Tente novamente.");

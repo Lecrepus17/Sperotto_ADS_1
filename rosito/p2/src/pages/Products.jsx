@@ -1,28 +1,27 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+
 function ProductList() {
-  const [productList, setProductList] = useState([
-    {
-      id: null,
-      title: "",
-      image: "",
-      price: 0,
-    },
-  ]);
+  const [productList, setProductList] = useState([]); // Estado para armazenar os produtos
+  const [loading, setLoading] = useState(true); // Estado para controle de carregamento
+  const [error, setError] = useState(null); // Estado para erros
+
   useEffect(() => {
-    const fetchUsers = async () => {
+    const fetchProducts = async () => {
       try {
-        const responses = await axios.get("https://fakestoreapi.com/products");
-        // Extraindo os dados das respostas
-        const product = responses.data;
-        setProductList(product);
-      } catch (error) {
-        console.error("Erro ao buscar usuários:", error);
+        setLoading(true);
+        const response = await axios.get("https://fakestoreapi.com/products");
+        setProductList(response.data); // Atualiza a lista de produtos
+      } catch (err) {
+        console.error("Erro ao buscar produtos:", err);
+        setError("Erro ao carregar os produtos. Tente novamente.");
+      } finally {
+        setLoading(false);
       }
     };
-    fetchUsers();
-  }, []);
+    fetchProducts();
+  }, []); // Executa apenas na montagem do componente
 
   const handleDelete = async (id) => {
     if (!window.confirm("Você tem certeza que deseja excluir este produto?")) {
@@ -41,9 +40,17 @@ function ProductList() {
     }
   };
 
+  if (loading) {
+    return <p>Carregando produtos...</p>; // Indicador de carregamento
+  }
+
+  if (error) {
+    return <p className="error-message">{error}</p>; // Exibe mensagens de erro
+  }
+
   return (
     <div className="product-grid">
-      <Link to={"/products/new"} className="product-link">
+      <Link to="/products/new" className="product-link">
         Adicionar Novo Produto
       </Link>
       {productList.map((product) => (
@@ -60,13 +67,18 @@ function ProductList() {
               <Link to={`/products/${product.id}`} className="product-link">
                 Ver detalhes
               </Link>
-              <Link to={`/products/edit/${product.id}`} className="product-link-edit">
+              <Link
+                to={`/products/edit/${product.id}`}
+                className="product-link-edit"
+              >
                 Editar Cadastro
               </Link>
               <button
                 onClick={() => handleDelete(product.id)}
                 className="delete-button"
-              >Excluir</button>
+              >
+                Excluir
+              </button>
             </div>
           </div>
         </div>
@@ -74,4 +86,5 @@ function ProductList() {
     </div>
   );
 }
+
 export default ProductList;
