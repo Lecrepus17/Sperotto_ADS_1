@@ -35,9 +35,9 @@ class BinarySearchTree {
 
   inOrderTraverseNode(node, callback) {
     if (node != null) {
+      this.inOrderTraverseNode(node._left, callback);
       callback(node._key);
       this.inOrderTraverseNode(node._right, callback);
-      this.inOrderTraverseNode(node._left, callback);
     }
   }
 
@@ -50,6 +50,18 @@ class BinarySearchTree {
       callback(node._key);
       this.preOrderTraverseNode(node._left, callback);
       this.preOrderTraverseNode(node._right, callback);
+    }
+  }
+
+  postOrderTraverse(callback) {
+    this.postOrderTraverseNode(this._root, callback);
+  }
+
+  postOrderTraverseNode(node, callback) {
+    if (node != null) {
+      this.postOrderTraverseNode(node._left, callback);
+      this.postOrderTraverseNode(node._right, callback);
+      callback(node._key);
     }
   }
 
@@ -77,16 +89,16 @@ class BinarySearchTree {
     return current;
   }
 
-  specific(key) {
-    const node = this.specificNode(this._root, key);
-    if (node) {
+  search(key) {
+    const node = this.searchNode(this._root, key);
+    if (node && node._key == key) {
       console.log(node);
     } else {
       console.log("Chave não encontrada");
     }
   }
 
-  specificNode(node, key) {
+  searchNode(node, key) {
     if (node === null) {
       return null;
     }
@@ -94,9 +106,51 @@ class BinarySearchTree {
     if (key === node._key) {
       return node;
     } else if (key < node._key) {
-      return this.specificNode(node._left, key);
+      return this.searchNode(node._left, key);
     } else {
-      return this.specificNode(node._right, key);
+      return this.searchNode(node._right, key);
+    }
+  }
+
+  remove(key) {
+    const node = this.removeNode(this._root, key);
+    if (node) {
+      return node;
+    } else {
+      return "Chave não encontrada";
+    }
+  }
+
+  removeNode(node, key) {
+    if (node == null) {
+      return null;
+    }
+    if (node._key > key) {
+      node._left = this.removeNode(node._left, key);
+      return node;
+    } else if (node._key < key) {
+      node._right = this.removeNode(node._right, key);
+      return node;
+    } else {
+      // cenario 1
+      if (node._left == null && node._right == null) {
+        node = null;
+        return node;
+      }
+
+      // cenario 2
+      if (node._left == null) {
+        node = node._right;
+        return node;
+      } else if (node._right == null) {
+        node = node._left;
+        return node;
+      }
+      // cenario 3
+      const aux = this.minNode(node._right);
+      node._key = aux._key;
+      node._right = this.removeNode(node._right, aux._key);
+      return node;
     }
   }
 }
@@ -117,10 +171,16 @@ tree.insert(20);
 tree.insert(18);
 tree.insert(25);
 
-const printNode = (value) => console.log(value);
+// const printNode = (value) => console.log(value);
 // tree.inOrderTraverse(printNode);
 // tree.preOrderTraverse(printNode);
+// tree.postOrderTraverse(printNode);
 // tree.min();
 // tree.max();
 
-// tree.specific(20);
+// tree.search(25436436);
+tree.search(13);
+tree.remove(12);
+tree.search(13);
+// tree.remove(5);
+// tree.remove(12);
