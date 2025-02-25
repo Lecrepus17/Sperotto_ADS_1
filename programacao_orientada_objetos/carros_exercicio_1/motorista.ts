@@ -12,7 +12,7 @@ class Motorista {
     return this.nome + " está dirigindo o carro " + carro.modelo;
   }
 }
-let carroBom = new Carro(
+var carroBom = new Carro(
   "ford",
   "fusca 1949",
   "burro quando foge",
@@ -20,6 +20,6 @@ let carroBom = new Carro(
   299
 );
 
-let motoristaTeste = new Motorista("Motorista para teste", 299);
+var motoristaTeste = new Motorista("Motorista para teste", 299);
 
 console.log(motoristaTeste.dirigirCarro(carroBom));
