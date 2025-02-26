@@ -21,7 +21,3 @@ const server = http.createServer((req, res) => {
 server.listen(3000, () => {
   console.log("Servidor rodando em http://localhost:3000");
 });
-
-// que consiga converter uma
-// temperatura em graus Celsius para Fahrenheit, pode usar a fórmula fahrenheit = (celsius * 9/5) +
-// 32;
