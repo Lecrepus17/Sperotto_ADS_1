@@ -1,0 +1,18 @@
+{
+  "name": "login_exercicio",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/testes.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/teste.js",
+    "dev": "ts-node teste.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
+  }
+}
