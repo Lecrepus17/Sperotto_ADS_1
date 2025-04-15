@@ -1,0 +1,1 @@
+CREATE DATABASE adocao_db;
