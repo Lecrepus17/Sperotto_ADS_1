@@ -11,8 +11,7 @@ function authenticateToken(req, res, next) {
   // Verifica e valida o token usando a chave secreta definida no .env
   jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) return res.sendStatus(403); // Token inválido: acesso proibido
-    // Se o token for válido, adiciona os dados do usuário decodificados na
-    requisição;
+    // Se o token for válido, adiciona os dados do usuário decodificados na requisição;
     req.user = user;
     // Passa para o próximo middleware ou rota
     next();
