@@ -1,0 +1,31 @@
+### Login como ADMIN
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@ifrs.edu.br",
+  "password": "123456"
+}
+
+### Login como USER
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@ifrs.edu.br",
+  "password": "123456"
+}
+
+### Listar eventos (rota pública)
+GET http://localhost:3000/events
+
+### Criar evento (somente ADMIN)
+# POST http://localhost:3000/events
+# Content-Type: application/json
+# Authorization: Bearer {{token}}
+
+# {
+#   "title": "Mutirão de Limpeza",
+#   "description": "Ação comunitária para limpeza de praça",
+#   "date": "2025-10-10"
+# }
