@@ -37,10 +37,6 @@ Content-Type: application/json
 }
 
 
-
-
-
-
 ### Listar eventos (rota pública)
 GET http://localhost:3000/events
 
