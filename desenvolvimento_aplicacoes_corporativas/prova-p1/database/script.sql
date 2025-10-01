@@ -26,5 +26,5 @@ CREATE TABLE volunteers (
 
 -- Usuários fictícios
 INSERT INTO users (email, password, role) VALUES
-('admin@ifrs.edu.br', '123456', 'admin'),
-('user@ifrs.edu.br', '123456', 'user');
+('admin@ifrs.edu.br', '$2b$10$Qe9Syz8nVCGYWO7nJ8JDyesu9pEgZuapHoWf.lfEGq/Jy.iL3ep8G', 'admin'),
+('user@ifrs.edu.br', '$2b$10$A7MRI.2Ov8NfSpBCUQtu3egeKAACVczpSnqh338/OruHjeEzQo5Oy', 'user');

@@ -1,3 +1,23 @@
+### criar ADMIN
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "admin@ifrs.edu.br",
+  "password": "123456",
+  "role": "admin"
+}
+
+### criar user
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@ifrs.edu.br",
+  "password": "123456",
+  "role": "user"
+}
+
 ### Login como ADMIN
 POST http://localhost:3000/auth/login
 Content-Type: application/json
@@ -16,16 +36,82 @@ Content-Type: application/json
   "password": "123456"
 }
 
+
+
+
+
+
 ### Listar eventos (rota pública)
 GET http://localhost:3000/events
 
 ### Criar evento (somente ADMIN)
-# POST http://localhost:3000/events
-# Content-Type: application/json
-# Authorization: Bearer {{token}}
+POST http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
-# {
-#   "title": "Mutirão de Limpeza",
-#   "description": "Ação comunitária para limpeza de praça",
-#   "date": "2025-10-10"
-# }
+{
+  "title": "Mutirão de Limpeza",
+  "description": "Ação comunitária para limpeza de praça",
+  "date": "2025-10-10"
+}
+
+
+### atualizar evento (somente ADMIN)
+PUT http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
+
+{
+  "title": "Mutirão de Limpeza 2",
+  "description": "Ação comunitária para limpeza de praça",
+  "date": "2025-10-10",
+  "id": 1
+}
+
+### deletar evento (somente ADMIN)
+DELETE  http://localhost:3000/events
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
+
+{
+  "id": 3
+}
+
+
+### litar voluntários (somente ADMIN)
+get http://localhost:3000/volunteers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
+
+
+### Criar voluntário (somente ADMIN)
+POST http://localhost:3000/volunteers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
+
+{
+  "email": "pedro@teste.com",
+  "name": "pedrinho",
+  "event_id": "2"
+}
+
+### atualizar voluntário (somente ADMIN)
+PUT http://localhost:3000/volunteers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
+
+{
+  "email": "pedro@teste.com",
+  "name": "pedrinho 2",
+  "event_id": "2",
+  "id": 1
+}
+
+### deletar voluntário (somente ADMIN)
+DELETE  http://localhost:3000/volunteers
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
+
+{
+  "id": 3
+}
