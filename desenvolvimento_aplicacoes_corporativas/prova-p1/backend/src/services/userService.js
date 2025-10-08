@@ -1,9 +1,31 @@
-const bcrypt = require("bcryptjs"); // Biblioteca para criptografia de senhas
-const jwt = require("jsonwebtoken"); // Biblioteca para geração de tokens JWT
-const UserModel = require("../models/userModel"); // Model responsável pelo acesso à tabela de usuários no banco
-// Classe que contém os serviços relacionados ao usuário, como registro e login
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+const UserModel = require("../models/userModel");
+
+/**
+ * @typedef {import('../models/userModel').UserPayload} UserPayload
+ */
+
+/**
+ * @typedef {object} LoginPayload
+ * @property {string} email - O email para login.
+ * @property {string} password - A senha para login.
+ */
+
+/**
+ * @class UserService
+ * @description Classe de serviço contendo a lógica de negócio para registro e autenticação de usuários.
+ */
 class UserService {
-  // Método para registrar um novo usuário
+  /**
+   * @description Service para registrar um novo usuário.
+   * Verifica se o usuário já existe e criptografa a senha antes de salvar.
+   * @static
+   * @async
+   * @param {UserPayload} user - Os dados do usuário a serem registrados.
+   * @returns {Promise<{message: string, id: number}>} Uma Promise que resolve para um objeto com a mensagem de sucesso e o ID do novo usuário.
+   * @throws {Error} Lança um erro se o email fornecido já estiver em uso.
+   */
   static async registerUser(user) {
     const { email, password, role } = user;
     // Verifica se o e-mail já está cadastrado
@@ -20,7 +42,15 @@ class UserService {
     // Retorna os dados de sucesso (sem lançar erro)
     return { message: "Usuário registrado com sucesso", id };
   }
-  // Método para autenticar o usuário e gerar token JWT
+
+  /**
+   * @description Service para autenticar um usuário e gerar um token JWT.
+   * @static
+   * @async
+   * @param {LoginPayload} credentials - As credenciais de login do usuário.
+   * @returns {Promise<{token: string, user: {email: string, role: string}}>} Uma Promise que resolve para um objeto contendo o token JWT e informações básicas do usuário.
+   * @throws {Error} Lança um erro se o usuário não for encontrado ou se a senha for inválida.
+   */
   static async loginUser({ email, password }) {
     // Busca o usuário pelo e-mail
     const user = await UserModel.findByEmail(email);

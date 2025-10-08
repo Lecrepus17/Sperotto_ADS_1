@@ -1,7 +1,24 @@
 const UserService = require("../services/userService");
 
+/**
+ * @typedef {import('express').Request} Request
+ * @typedef {import('express').Response} Response
+ */
+
+/**
+ * @class AuthController
+ * @description Controller responsável por gerenciar as requisições de autenticação.
+ */
 class AuthController {
-  // Método estático que trata o cadastro de um novo usuário
+  /**
+   * @description Registra um novo usuário na aplicação.
+   * @route POST /register
+   * @static
+   * @async
+   * @param {Request} req - O objeto de requisição do Express. Espera-se que `req.body` contenha os dados do usuário (email, password, role).
+   * @param {Response} res - O objeto de resposta do Express.
+   * @returns {Promise<Response>} Retorna uma resposta JSON com a mensagem de sucesso e o ID do usuário (status 201) ou uma mensagem de erro (status 409).
+   */
   static async register(req, res) {
     try {
       // Chama o serviço para registrar o usuário, passando os dados da requisição
@@ -13,6 +30,16 @@ class AuthController {
       return res.status(409).json({ message: error.message });
     }
   }
+
+  /**
+   * @description Autentica um usuário e retorna um token JWT.
+   * @route POST /login
+   * @static
+   * @async
+   * @param {Request} req - O objeto de requisição do Express. Espera-se que `req.body` contenha as credenciais (email, password).
+   * @param {Response} res - O objeto de resposta do Express.
+   * @returns {Promise<Response>} Retorna uma resposta JSON com o token e dados do usuário (status 200) ou uma mensagem de erro (status 401 ou 500).
+   */
   static async login(req, res) {
     try {
       // Chama o serviço para autenticar o usuário, passando os dados da requisição
