@@ -7,7 +7,7 @@ module.exports = {
   },
   servers: [
     {
-      url: "http://localhost:3000",
+      url: "http://localhost:3003",
     },
   ],
   components: {

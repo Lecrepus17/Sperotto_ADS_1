@@ -1,5 +1,5 @@
 ### criar ADMIN
-POST http://localhost:3000/auth/register
+POST http://localhost:3003/auth/register
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ### criar user
-POST http://localhost:3000/auth/register
+POST http://localhost:3003/auth/register
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
 }
 
 ### Login como ADMIN
-POST http://localhost:3000/auth/login
+POST http://localhost:3003/auth/login
 Content-Type: application/json
 
 {
@@ -28,7 +28,7 @@ Content-Type: application/json
 }
 
 ### Login como USER
-POST http://localhost:3000/auth/login
+POST http://localhost:3003/auth/login
 Content-Type: application/json
 
 {
@@ -38,10 +38,10 @@ Content-Type: application/json
 
 
 ### Listar eventos (rota pública)
-GET http://localhost:3000/events
+GET http://localhost:3003/events
 
 ### Criar evento (somente ADMIN)
-POST http://localhost:3000/events
+POST http://localhost:3003/events
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
@@ -53,7 +53,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 
 ### atualizar evento (somente ADMIN)
-PUT http://localhost:3000/events
+PUT http://localhost:3003/events
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
@@ -65,7 +65,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 }
 
 ### deletar evento (somente ADMIN)
-DELETE  http://localhost:3000/events
+DELETE  http://localhost:3003/events
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
@@ -75,13 +75,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 
 
 ### litar voluntários (somente ADMIN)
-get http://localhost:3000/volunteers
+get http://localhost:3003/volunteers
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
 
 ### Criar voluntário (somente ADMIN)
-POST http://localhost:3000/volunteers
+POST http://localhost:3003/volunteers
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
@@ -92,7 +92,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 }
 
 ### atualizar voluntário (somente ADMIN)
-PUT http://localhost:3000/volunteers
+PUT http://localhost:3003/volunteers
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 
@@ -104,7 +104,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQ
 }
 
 ### deletar voluntário (somente ADMIN)
-DELETE  http://localhost:3000/volunteers
+DELETE  http://localhost:3003/volunteers
 Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGlmcnMuZWR1LmJyIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzU5MzU4NDM1LCJleHAiOjE3NTkzNjIwMzV9.Td3qn_CwDPGV0KGEbq0sNECNbwsXtbfYDaBHHM5jvUk
 

@@ -1,7 +1,7 @@
 // src/api/http.js
 import axios from "axios";
 export const http = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "http://localhost:3003",
 });
 // Interceptor de REQUEST: anexa o Bearer se houver token no localStorage
 http.interceptors.request.use((config) => {
