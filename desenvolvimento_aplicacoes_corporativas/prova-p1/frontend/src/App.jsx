@@ -38,9 +38,6 @@ const router = createBrowserRouter([
       { path: "login", element: <Login /> },
       { path: "forbidden", element: <Forbidden /> },
 
-      // --- ADICIONE AS NOVAS ROTAS PÚBLICAS AQUI ---
-      { path: "events", element: <Events /> },
-
       // ...resto das suas rotas protegidas
       {
         path: "dashboard",
