@@ -10,8 +10,8 @@ router.get(
   volunteersController.dashboard
 );
 
+router.get("/", volunteersController.getVolunteers);
 router.post("/", authMiddleware.verifyAdmin, volunteersController.newVolunteer);
-router.get("/", authMiddleware.verifyAdmin, volunteersController.getVolunteers);
 router.put("/", authMiddleware.verifyAdmin, volunteersController.updateVolunteer);
 router.delete("/", authMiddleware.verifyAdmin, volunteersController.deleteVolunteer);
 
