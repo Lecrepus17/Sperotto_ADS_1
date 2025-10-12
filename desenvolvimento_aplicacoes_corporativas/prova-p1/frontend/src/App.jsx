@@ -50,8 +50,10 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: (
-          <RequireAuth role="admin">
-            <Register />
+          <RequireAuth>
+            <RequireRole role="admin">
+              <Register />
+            </RequireRole>
           </RequireAuth>
         ),
       },
