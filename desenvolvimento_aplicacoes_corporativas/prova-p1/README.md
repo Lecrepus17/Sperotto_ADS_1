@@ -53,7 +53,7 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 - **Documentação**:
     - **Swagger**: Documentação da API disponível e interativa.
         A documentação dos endpoints da API, incluindo GET /events, POST /events e POST /auth/    login, está disponível e pode ser acessada através do Swagger UI.
-        URL do Swagger: http://localhost:3001/api-docs
+        URL do Swagger: http://localhost:3003/api-docs
     - **JSDoc**: Documentação interna do código nas principais funções e classes.
         Pode ser gerado com o comando: **npm run docs**
     - **Testes de API (REST Client)**: O arquivo tests.rest, conforme solicitado, contém exemplos de requisições para os endpoints implementados, facilitando os testes e a validação das funcionalidades.
