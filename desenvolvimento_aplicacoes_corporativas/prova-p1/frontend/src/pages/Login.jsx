@@ -20,8 +20,8 @@ export default function Login() {
     setLoading(true);
     try {
       await login(form); // chama AuthContext → POST /auth/login
-      // redireciona para a rota pretendida ou para /dashboard
-      navigate(state?.from?.pathname || "/dashboard", { replace: true });
+      // redireciona para /dashboard
+      navigate("/dashboard", { replace: true });
     } catch {
       setErr("Credenciais inválidas");
     } finally {

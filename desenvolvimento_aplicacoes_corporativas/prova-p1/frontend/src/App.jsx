@@ -10,6 +10,11 @@ import Login from "./pages/Login";
 import Forbidden from "./pages/Forbidden";
 import Dashboard from "./pages/Dashboard";
 import Admin from "./pages/Admin";
+
+// --- IMPORTE AS PÁGINAS AQUI ---
+import Register from "./pages/Register";
+import Events from "./pages/Events"; // Você já tem este arquivo
+
 // (Opcional) Fallback simples para rotas inexistentes
 function NotFound() {
   return (
@@ -25,14 +30,18 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
-    errorElement: <NotFound />, // opcional
+    errorElement: <NotFound />,
     children: [
       // públicas
       { index: true, element: <Home /> },
       { path: "about", element: <About /> },
       { path: "login", element: <Login /> },
       { path: "forbidden", element: <Forbidden /> },
-      // protegida por autenticação (token)
+
+      // --- ADICIONE AS NOVAS ROTAS PÚBLICAS AQUI ---
+      { path: "events", element: <Events /> },
+
+      // ...resto das suas rotas protegidas
       {
         path: "dashboard",
         element: (
@@ -41,7 +50,14 @@ const router = createBrowserRouter([
           </RequireAuth>
         ),
       },
-      // protegida por autenticação + papel específico (admin)
+      {
+        path: "register",
+        element: (
+          <RequireAuth role="admin">
+            <Register />
+          </RequireAuth>
+        ),
+      },
       {
         path: "admin",
         element: (
@@ -52,11 +68,11 @@ const router = createBrowserRouter([
           </RequireAuth>
         ),
       },
-      // fallback interno (opcional)
       { path: "*", element: <NotFound /> },
     ],
   },
 ]);
+
 export default function App() {
   // O AuthProvider envolve o Router para que todas as rotas
   // tenham acesso a user/token/login/logout via contexto.
