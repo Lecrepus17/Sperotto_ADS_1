@@ -34,7 +34,9 @@ export default function Register() {
     <section className="card">
       <h1>Criar Nova Conta</h1>
       {error && <p className="alert">{error}</p>}
-      <form onSubmit={handleSubmit} className="form">
+      
+      {/* A classe "form--inline" foi adicionada aqui */}
+      <form onSubmit={handleSubmit} className="form form--inline">
         <FormInput
           label="E-mail"
           type="email"
