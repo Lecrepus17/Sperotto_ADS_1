@@ -1,0 +1,10 @@
+@baseURL = http://localhost:3000
+### Testa a rota de verificação de saúde da API.
+GET {{baseURL}}/health
+Accept: application/json
+### Testa a rota de usuários, simulando a consulta de um usuário com ID 42.
+GET {{baseURL}}/users/42
+Accept: application/json
+### Testa uma rota que gera erro propositalmente.
+GET {{baseURL}}/error
+Accept: application/json
