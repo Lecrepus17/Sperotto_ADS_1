@@ -112,3 +112,10 @@ Siga os passos abaixo para executar o projeto localmente.
 GitHub: @Lecrepus17
 
 LinkedIn: linkedin.com/in/pedro-eduardo-milesi-sperotto-422477296
+
+
+
+
+
+
+ORGANIZAR: comandos pm2 e log, aqui no readme.md
