@@ -119,3 +119,14 @@ LinkedIn: linkedin.com/in/pedro-eduardo-milesi-sperotto-422477296
 
 
 ORGANIZAR: comandos pm2 e log, aqui no readme.md
+
+npm test
+
+node .\e2e\login_test.js
+
+
+px prisma migrate reset
+npx prisma migrate dev --name init_structure
+npx prisma db seed
+
+npx prisma generate

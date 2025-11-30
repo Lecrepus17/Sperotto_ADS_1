@@ -1,4 +1,4 @@
-const UserService = require("../services/userService");
+const UserService = require("../services/UserService");
 
 /**
  * @typedef {import('express').Request} Request
@@ -47,12 +47,13 @@ class AuthController {
       // Retorna status 200 (OK) com o token JWT
       return res.status(200).json(result); // envia { token, user }
     } catch (error) {
+      
       // Define o status apropriado com base na mensagem de erro
       const status =
         error.message === "Usuário não encontrado" ||
         error.message === "Senha inválida"
           ? 401 // Não autorizado
-          : 500; // Erro interno do servidor
+          : 401; // Erro interno do servidor
       // Retorna o status definido com a mensagem do erro
       return res.status(status).json({ message: error.message });
     }

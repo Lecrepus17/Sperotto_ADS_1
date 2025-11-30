@@ -24,7 +24,7 @@ export default function Navbar() {
           </li>
           {!user && (
             <li>
-              <NavLink to="/login">Login</NavLink>
+              <NavLink id="botao-entrar"   to="/login">Login</NavLink>
             </li>
           )}
           {user && (
