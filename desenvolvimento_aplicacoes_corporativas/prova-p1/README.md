@@ -163,23 +163,3 @@ pm2 log
 GitHub: @Lecrepus17
 
 LinkedIn: linkedin.com/in/pedro-eduardo-milesi-sperotto-422477296
-
-
-
-
-
-
-ORGANIZAR: comandos pm2 e log, aqui no readme.md
-
-// usado jest e supertest
-npm test
-
-sobre o teste no front
-node .\e2e\login_test.js
-
-
-uso do prisma
-npx prisma generate
-npx prisma migrate dev --name init_structure
-npx prisma db seed
-```
