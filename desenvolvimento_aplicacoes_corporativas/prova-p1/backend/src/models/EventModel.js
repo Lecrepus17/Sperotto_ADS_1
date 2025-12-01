@@ -1,4 +1,4 @@
-const db = require("../config/db");
+const prisma = require("../config/prisma"); // Importa a instância configurada do Prisma
 
 /**
  * @typedef {object} EventPayload
@@ -14,7 +14,7 @@ const db = require("../config/db");
 
 /**
  * @class EventModel
- * @description Classe responsável pelas operações de banco de dados (CRUD) para eventos.
+ * @description Classe responsável pelas operações de banco de dados (CRUD) para eventos usando Prisma.
  */
 class EventModel {
   /**
@@ -22,11 +22,10 @@ class EventModel {
    * @static
    * @async
    * @returns {Promise<Array<Event>>} Uma Promise que resolve para um array de objetos de evento.
-   * @throws {Error} Lança um erro se a consulta ao banco de dados falhar.
    */
   static async getAll() {
-    const [rows] = await db.query("SELECT * FROM events");
-    return rows;
+    // Prisma: findMany substitui SELECT *
+    return await prisma.event.findMany();
   }
 
   /**
@@ -34,16 +33,23 @@ class EventModel {
    * @static
    * @async
    * @param {EventPayload} event - O objeto contendo os dados do evento a ser criado.
-   * @returns {Promise<Event>} Uma Promise que resolve para o objeto do evento recém-criado, incluindo seu novo ID.
-   * @throws {Error} Lança um erro se a inserção no banco de dados falhar.
+   * @returns {Promise<Event>} Uma Promise que resolve para o objeto do evento recém-criado.
    */
   static async create(event) {
     const { title, description, date } = event;
-    const [result] = await db.query(
-      "INSERT INTO events (title, description, date) VALUES (?, ?, ?)",
-      [title, description, date]
-    );
-    return { id: result.insertId, ...event };
+
+    // Prisma: create substitui INSERT
+    // Nota: O Prisma converte automaticamente strings ISO para DateTime,
+    // mas é boa prática garantir que seja um objeto Date se necessário.
+    const createdEvent = await prisma.event.create({
+      data: {
+        title,
+        description,
+        date: new Date(date), // Garante formato DateTime
+      },
+    });
+
+    return createdEvent;
   }
 
   /**
@@ -57,18 +63,25 @@ class EventModel {
   static async alter(event) {
     const { id, title, description, date } = event;
 
-    // Atualiza o evento existente
-    const [result] = await db.query(
-      "UPDATE events SET title = ?, description = ?, date = ? WHERE id = ?",
-      [title, description, date, id]
-    );
+    try {
+      // Prisma: update substitui UPDATE ... WHERE
+      const updatedEvent = await prisma.event.update({
+        where: { id: Number(id) },
+        data: {
+          title,
+          description,
+          date: new Date(date),
+        },
+      });
 
-    // Se nenhum registro foi alterado, significa que o id não existe
-    if (result.affectedRows === 0) {
-      throw new Error(`Evento com id ${id} não encontrado.`);
+      return updatedEvent;
+    } catch (error) {
+      // O código de erro P2025 no Prisma significa "Record not found"
+      if (error.code === "P2025") {
+        throw new Error(`Evento com id ${id} não encontrado.`);
+      }
+      throw error;
     }
-
-    return { id, title, description, date };
   }
 
   /**
@@ -83,15 +96,20 @@ class EventModel {
   static async delete(event) {
     const { id } = event;
 
-    // Deleta o evento pelo id
-    const [result] = await db.query("DELETE FROM events WHERE id = ?", [id]);
+    try {
+      // Prisma: delete substitui DELETE ... WHERE
+      await prisma.event.delete({
+        where: { id: Number(id) },
+      });
 
-    // Se nenhum registro foi deletado, significa que o id não existe
-    if (result.affectedRows === 0) {
-      throw new Error(`Evento com id ${id} não encontrado.`);
+      return { message: `Evento com id ${id} deletado com sucesso.` };
+    } catch (error) {
+      // Tratamento de erro idêntico ao update para manter consistência
+      if (error.code === "P2025") {
+        throw new Error(`Evento com id ${id} não encontrado.`);
+      }
+      throw error;
     }
-
-    return { message: `Evento com id ${id} deletado com sucesso.` };
   }
 }
 

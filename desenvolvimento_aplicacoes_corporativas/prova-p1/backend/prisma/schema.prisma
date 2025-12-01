@@ -1,11 +1,12 @@
 // prisma/schema.prisma
 
-datasource db {
-  provider = "mysql" 
-}
-
 generator client {
   provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url = env("DATABASE_URL")
 }
 
 // Mapeamento do ENUM do SQL

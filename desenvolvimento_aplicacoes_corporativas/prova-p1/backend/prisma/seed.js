@@ -4,7 +4,7 @@ const prisma = new PrismaClient();
 
 async function main() {
   console.log("🌱 Iniciando o seed do banco de dados...");
-
+  
   console.log("🧹 Limpando dados anteriores...");
   // 1. Limpeza de dados (Lógica baseada no Código 1)
   // A ordem é crucial para evitar erros de chave estrangeira (FK)

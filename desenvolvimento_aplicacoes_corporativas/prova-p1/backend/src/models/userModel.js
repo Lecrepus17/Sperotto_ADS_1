@@ -1,4 +1,4 @@
-const db = require("../config/db");
+const prisma = require("../config/prisma"); // Importa a instância configurada do Prisma
 
 /**
  * @typedef {object} UserPayload
@@ -14,7 +14,7 @@ const db = require("../config/db");
 
 /**
  * @class UserModel
- * @description Classe responsável pelas operações de banco de dados para usuários.
+ * @description Classe responsável pelas operações de banco de dados para usuários usando Prisma.
  */
 class UserModel {
   /**
@@ -22,14 +22,19 @@ class UserModel {
    * @static
    * @async
    * @param {string} email - O email do usuário a ser procurado.
-   * @returns {Promise<User|undefined>} Uma Promise que resolve para o objeto do usuário encontrado ou undefined se nenhum usuário for encontrado.
+   * @returns {Promise<User|null>} Uma Promise que resolve para o objeto do usuário encontrado ou null se nenhum usuário for encontrado.
    * @throws {Error} Lança um erro se a consulta ao banco de dados falhar.
    */
   static async findByEmail(email) {
-    const [rows] = await db.query("SELECT * FROM users WHERE email = ?", [
-      email,
-    ]);
-    return rows[0];
+    // findUnique é muito mais rápido que findFirst/query crua,
+    // mas exige que o campo 'email' tenha @unique no schema.prisma
+    const user = await prisma.user.findUnique({
+      where: {
+        email: email,
+      },
+    });
+
+    return user;
   }
 
   /**
@@ -38,15 +43,22 @@ class UserModel {
    * @async
    * @param {UserPayload} user - O objeto contendo os dados do usuário a ser criado.
    * @returns {Promise<number>} Uma Promise que resolve para o ID do usuário recém-criado.
-   * @throws {Error} Lança um erro se a inserção no banco de dados falhar.
+   * @throws {Error} Lança um erro se a inserção no banco de dados falhar (ex: email duplicado).
    */
   static async create(user) {
     const { email, password, role } = user;
-    const [result] = await db.query(
-      "INSERT INTO users (email, password, role) VALUES (?, ?, ?)",
-      [email, password, role]
-    );
-    return result.insertId;
+
+    // O Prisma retorna o objeto criado inteiro, não apenas o ID.
+    const createdUser = await prisma.user.create({
+      data: {
+        email,
+        password,
+        role: role || undefined, // Se role for null/undefined, o Prisma usará o @default("user")
+      },
+    });
+
+    // Retornamos apenas o id para manter compatibilidade com seu código original
+    return createdUser.id;
   }
 }
 

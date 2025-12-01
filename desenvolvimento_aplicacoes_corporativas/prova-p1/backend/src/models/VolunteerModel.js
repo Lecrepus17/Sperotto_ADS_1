@@ -1,4 +1,4 @@
-const db = require("../config/db");
+const prisma = require("../config/prisma"); // Importa a instância configurada do Prisma
 
 /**
  * @typedef {object} VolunteerPayload
@@ -14,7 +14,7 @@ const db = require("../config/db");
 
 /**
  * @class VolunteerModel
- * @description Classe para gerenciar as operações de banco de dados (CRUD) para voluntários.
+ * @description Classe para gerenciar as operações de banco de dados (CRUD) para voluntários usando Prisma.
  */
 class VolunteerModel {
   /**
@@ -25,8 +25,7 @@ class VolunteerModel {
    * @throws {Error} Lança um erro se a consulta ao banco de dados falhar.
    */
   static async getAll() {
-    const [rows] = await db.query("SELECT * FROM volunteers");
-    return rows;
+    return await prisma.volunteer.findMany();
   }
 
   /**
@@ -34,16 +33,21 @@ class VolunteerModel {
    * @static
    * @async
    * @param {VolunteerPayload} volunteer - O objeto com os dados do voluntário a ser criado.
-   * @returns {Promise<Volunteer>} Uma Promise que resolve para o objeto do voluntário recém-criado, incluindo seu novo ID.
+   * @returns {Promise<Volunteer>} Uma Promise que resolve para o objeto do voluntário recém-criado.
    * @throws {Error} Lança um erro se a inserção no banco de dados falhar.
    */
   static async create(volunteer) {
     const { name, email, event_id } = volunteer;
-    const [result] = await db.query(
-      "INSERT INTO volunteers (name, email, event_id) VALUES (?, ?, ?)",
-      [name, email, event_id]
-    );
-    return { id: result.insertId, ...volunteer };
+
+    const createdVolunteer = await prisma.volunteer.create({
+      data: {
+        name,
+        email,
+        eventId: Number(event_id), // Garante que seja um número (Int)
+      },
+    });
+
+    return createdVolunteer;
   }
 
   /**
@@ -57,18 +61,24 @@ class VolunteerModel {
   static async alter(volunteer) {
     const { id, name, email, event_id } = volunteer;
 
-    // Atualiza o voluntário existente
-    const [result] = await db.query(
-      "UPDATE volunteers SET name = ?, email = ?, event_id = ? WHERE id = ?",
-      [name, email, event_id, id]
-    );
+    try {
+      const updatedVolunteer = await prisma.volunteer.update({
+        where: { id: Number(id) },
+        data: {
+          name,
+          email,
+          eventId: Number(event_id),
+        },
+      });
 
-    // Se nenhum registro foi alterado, significa que o id não existe
-    if (result.affectedRows === 0) {
-      throw new Error(`Voluntário com id ${id} não encontrado.`);
+      return updatedVolunteer;
+    } catch (error) {
+      // P2025: Record to update not found
+      if (error.code === 'P2025') {
+        throw new Error(`Voluntário com id ${id} não encontrado.`);
+      }
+      throw error;
     }
-
-    return { id, name, email, event_id };
   }
 
   /**
@@ -83,15 +93,19 @@ class VolunteerModel {
   static async delete(volunteer) {
     const { id } = volunteer;
 
-    // Deleta o voluntário pelo id
-    const [result] = await db.query("DELETE FROM volunteers WHERE id = ?", [id]);
+    try {
+      await prisma.volunteer.delete({
+        where: { id: Number(id) },
+      });
 
-    // Se nenhum registro foi deletado, significa que o id não existe
-    if (result.affectedRows === 0) {
-      throw new Error(`Voluntário com id ${id} não encontrado.`);
+      return { message: `Voluntário com id ${id} deletado com sucesso.` };
+    } catch (error) {
+      // P2025: Record to delete not found
+      if (error.code === 'P2025') {
+        throw new Error(`Voluntário com id ${id} não encontrado.`);
+      }
+      throw error;
     }
-
-    return { message: `Voluntário com id ${id} deletado com sucesso.` };
   }
 }
 

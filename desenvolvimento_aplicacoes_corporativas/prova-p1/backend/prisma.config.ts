@@ -7,11 +7,10 @@ export default defineConfig({
   schema: "prisma/schema.prisma",
   // Onde as migrações ficarão gravadas
   migrations: {
-    path: "prisma/migrations",
     seed: "node prisma/seed.js",
   },
   // Usa o mecanismo padrão de execução de consultas, baseado em Rust.
-  engine: "classic",
+  // engine: "classic",
   // Define a(s) origem(ns) de dados. Aqui pegamos a URL do .env
   datasource: {
     url: env("DATABASE_URL"),
