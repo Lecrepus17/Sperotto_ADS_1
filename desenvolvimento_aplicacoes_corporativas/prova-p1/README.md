@@ -21,6 +21,7 @@ O objetivo é criar um sistema para o IFRS organizar e gerenciar ações de volu
 Este projeto foi construído utilizando as seguintes tecnologias:
 
 ### **Back-end**
+
 - **Node.js**: Ambiente de execução JavaScript.
 - **Express**: Framework para a construção da API RESTful.
 - **MySQL2**: Driver para conexão com o banco de dados MySQL.
@@ -32,9 +33,11 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 - **Nodemon**: Para desenvolvimento com live-reloading.
 
 ### **Front-end**
+
 - **React**: Biblioteca para a construção da interface de usuário.
 
 ### **Boas Práticas e Qualidade de Código**
+
 - **ESLint** e **Prettier**: Para padronização e linting de código.
 - **SOLID** e **Clean Code**: Princípios aplicados para garantir um código limpo e manutenível.
 
@@ -44,19 +47,19 @@ Este projeto foi construído utilizando as seguintes tecnologias:
 
 - **API RESTful**: Endpoints para gerenciamento de eventos e voluntários seguindo os princípios REST.
 - **Autenticação com JWT**:
-    - Rota `POST /auth/login` para autenticar usuários.
-    - Geração de token com payload `{ email, role }`.
+  - Rota `POST /auth/login` para autenticar usuários.
+  - Geração de token com payload `{ email, role }`.
 - **Controle de Acesso por Perfil**:
-    - Rota `GET /dashboard` protegida para usuários autenticados.
-    - Rota `POST /events` protegida para usuários com perfil de `admin`.
+  - Rota `GET /dashboard` protegida para usuários autenticados.
+  - Rota `POST /events` protegida para usuários com perfil de `admin`.
 - **Arquitetura em Camadas**: O back-end foi estruturado em camadas (Routes, Controller, Service, Model) para separação de responsabilidades.
 - **Documentação**:
-    - **Swagger**: Documentação da API disponível e interativa.
-        A documentação dos endpoints da API, incluindo GET /events, POST /events e POST /auth/    login, está disponível e pode ser acessada através do Swagger UI.
-        URL do Swagger: http://localhost:3003/api-docs
-    - **JSDoc**: Documentação interna do código nas principais funções e classes.
-        Pode ser gerado com o comando: **npm run docs**
-    - **Testes de API (REST Client)**: O arquivo tests.rest, conforme solicitado, contém exemplos de requisições para os endpoints implementados, facilitando os testes e a validação das funcionalidades.
+  - **Swagger**: Documentação da API disponível e interativa.
+    A documentação dos endpoints da API, incluindo GET /events, POST /events e POST /auth/login, está disponível e pode ser acessada através do Swagger UI.
+    URL do Swagger: http://localhost:3003/api-docs
+  - **JSDoc**: Documentação interna do código nas principais funções e classes.
+    Pode ser gerado com o comando: **npm run docs**
+  - **Testes de API (REST Client)**: O arquivo tests.rest, conforme solicitado, contém exemplos de requisições para os endpoints implementados, facilitando os testes e a validação das funcionalidades.
 
 ---
 
@@ -73,37 +76,85 @@ Siga os passos abaixo para executar o projeto localmente.
 ### **Instalação**
 
 1. **Clone o repositório:**
+
    ```bash
    git clone <URL_DO_SEU_REPOSITORIO>
    cd <NOME_DA_PASTA_DO_PROJETO>
+   ```
 
 2. **Configure o Back-end:**
-    ```bash
-    cd backend
-    npm install
-    cp .env.example .env
+
+   ```bash
+   cd backend
+   npm install
+   cp .env.example .env
+   ```
 
 3. **Ajuste as informações do arquivo .env**
 
 4. **Execute o script .sql fornecido no projeto para criar as tabelas e popular o banco de dados com dados fictícios**
 
-
 5. **Configure o Front-end:**
-    ```bash
-    cd ../frontend 
-    npm install
+   ```bash
+   cd ../frontend
+   npm install
+   ```
 
 ### **Executar a Aplicação**
 
 1. **Inicie o Servidor Back-end:**
-    ```bash
-    cd backend
-    npm run dev
+
+   ```bash
+   cd backend
+   npm run dev
+   ```
 
 2. **Inicie a Aplicação Front-end:**
-    ```bash
-    cd ../frontend
-    npm run dev
+   ```bash
+   cd ../frontend
+   npm run dev
+   ```
+
+---
+
+## 🛠️ Ferramentas de Desenvolvimento e Testes
+
+Abaixo estão os comandos essenciais para gerenciamento de banco de dados, execução de testes e monitoramento de processos.
+
+### **Gerenciamento de Banco de Dados (Prisma)**
+
+Comandos para gerar o cliente, criar migrações e popular o banco de dados:
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init_structure
+npx prisma db seed
+```
+
+### **Testes Automatizados**
+
+```bash
+Back-end (Jest e Supertest): Para rodar a suíte de testes de integração:
+
+npm test
+Front-end (E2E): Para executar o script de teste de login:
+
+
+node .\e2e\login_test.js
+Gerenciamento de Processos (PM2)
+Comandos para gerenciamento da aplicação e visualização de logs:
+```
+
+
+# **Iniciar aplicação via PM2**
+```bash
+pm2 start src/server.js
+```
+
+# **Visualizar logs em tempo real**
+```bash
+pm2 log
+```
 
 
 ## 👤 Autor
@@ -120,13 +171,15 @@ LinkedIn: linkedin.com/in/pedro-eduardo-milesi-sperotto-422477296
 
 ORGANIZAR: comandos pm2 e log, aqui no readme.md
 
+// usado jest e supertest
 npm test
 
+sobre o teste no front
 node .\e2e\login_test.js
 
 
-px prisma migrate reset
+uso do prisma
+npx prisma generate
 npx prisma migrate dev --name init_structure
 npx prisma db seed
-
-npx prisma generate
+```
