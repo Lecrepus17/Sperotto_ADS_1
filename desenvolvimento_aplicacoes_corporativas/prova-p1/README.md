@@ -138,22 +138,7 @@ Back-end (Jest e Supertest): Para rodar a suíte de testes de integração:
 
 npm test
 Front-end (E2E): Para executar o script de teste de login:
-
-
 node .\e2e\login_test.js
-Gerenciamento de Processos (PM2)
-Comandos para gerenciamento da aplicação e visualização de logs:
-```
-
-
-# **Iniciar aplicação via PM2**
-```bash
-pm2 start src/server.js
-```
-
-# **Visualizar logs em tempo real**
-```bash
-pm2 log
 ```
 
 
