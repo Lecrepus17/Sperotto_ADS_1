@@ -133,11 +133,13 @@ npx prisma db seed
 
 ### **Testes Automatizados**
 
-```bash
 Back-end (Jest e Supertest): Para rodar a suíte de testes de integração:
-
+```bash
 npm test
+```
+
 Front-end (E2E): Para executar o script de teste de login:
+```bash
 node .\e2e\login_test.js
 ```
 
