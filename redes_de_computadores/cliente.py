@@ -4,7 +4,7 @@ import zlib
 import os
 import random
 
-IP_SERVIDOR = '127.0.0.1' 
+ip_servidor = '127.0.0.1' 
 PORTA_SERVIDOR = 5000
 TIMEOUT = 2.0 
 
@@ -35,7 +35,7 @@ def enviar_pacote_confiavel(sock, seq, dados, prob_perda, prob_corrupcao):
                 print(f"--- [SIMULAÇÃO] Pacote {seq} CORROMPIDO enviado.")
             
             pacote = struct.pack('!II', seq, checksum_real) + dados_a_enviar
-            sock.sendto(pacote, (IP_SERVIDOR, PORTA_SERVIDOR))
+            sock.sendto(pacote, (ip_servidor, PORTA_SERVIDOR))
         
         try:
             ack_pacote, _ = sock.recvfrom(1024)
@@ -57,6 +57,7 @@ def enviar_arquivo():
     # Pega apenas o nome (ex: se for C:/Docs/foto.jpg, pega apenas foto.jpg)
     nome_arquivo = os.path.basename(nome_caminho)
     
+    ip_servidor = input("IP servidor: ")
     tamanho_pacote = int(input("Tamanho do pacote (bytes): "))
     prob_perda = float(input("Probabilidade de perda (0-100): "))
     prob_corrupcao = float(input("Probabilidade de corrupção (0-100): "))
@@ -82,7 +83,7 @@ def enviar_arquivo():
             seq += 1
 
     # Envia pacote vazio para finalizar
-    sock.sendto(struct.pack('!II', seq, 0), (IP_SERVIDOR, PORTA_SERVIDOR))
+    sock.sendto(struct.pack('!II', seq, 0), (ip_servidor, PORTA_SERVIDOR))
     print("\nTransferência concluída com sucesso.")
     sock.close()
 
