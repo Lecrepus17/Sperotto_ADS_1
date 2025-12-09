@@ -4,7 +4,6 @@ import zlib
 import os
 import random
 
-ip_servidor = '127.0.0.1' 
 PORTA_SERVIDOR = 5000
 TIMEOUT = 2.0 
 
@@ -19,7 +18,7 @@ def simular_erro(dados, prob_corrupcao):
         return bytes(dados_corrompidos), True
     return dados, False
 
-def enviar_pacote_confiavel(sock, seq, dados, prob_perda, prob_corrupcao):
+def enviar_pacote_confiavel(sock, seq, dados, prob_perda, prob_corrupcao, ip_servidor):
     """Função auxiliar para enviar qualquer dado com a lógica de erro/retry"""
     ack_recebido = False
     while not ack_recebido:
@@ -66,7 +65,7 @@ def enviar_arquivo():
     
     # --- PASSO 1: Enviar o NOME do arquivo (Pacote 0) ---
     print(f"Enviando metadados do arquivo: {nome_arquivo}...")
-    enviar_pacote_confiavel(sock, seq, nome_arquivo.encode('utf-8'), prob_perda, prob_corrupcao)
+    enviar_pacote_confiavel(sock, seq, nome_arquivo.encode('utf-8'), prob_perda, prob_corrupcao, ip_servidor)
     print("Metadados confirmados pelo servidor.")
     seq += 1 # Incrementa para começar os dados no 1
 
@@ -78,7 +77,7 @@ def enviar_arquivo():
                 break 
             
             # Usa a mesma função auxiliar para enviar os pedaços
-            enviar_pacote_confiavel(sock, seq, dados, prob_perda, prob_corrupcao)
+            enviar_pacote_confiavel(sock, seq, dados, prob_perda, prob_corrupcao, ip_servidor)
             print(f"Pacote {seq} enviado e confirmado.")
             seq += 1
 
