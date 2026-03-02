@@ -12,6 +12,16 @@ export default function Index() {
           <Text style={commonStyles.buttonText}>Ir para a lista</Text>
         </Pressable>
       </Link>
+      <Link href="/1" asChild>
+        <Pressable style={commonStyles.button}>
+          <Text style={commonStyles.buttonText}>Ir para a 1</Text>
+        </Pressable>
+      </Link>
+      <Link href={{ pathname: "/[id]", params: { id: 2, color: "blue" } }} asChild>
+        <Pressable style={commonStyles.button}>
+          <Text style={commonStyles.buttonText}>Ir para a 2</Text>
+        </Pressable>
+      </Link>
     </View>
   );
 }
