@@ -1,6 +1,6 @@
 import { Pressable, Text, View } from "react-native";
 import { commonStyles } from "../styles/commonStyles";
-import { Link, useLocalSearchParams, useRouter } from "expo-router";
+import { Link, Redirect, useLocalSearchParams, useRouter } from "expo-router";
 import { dados } from "../../dados";
 
 export default function () {
@@ -8,7 +8,7 @@ export default function () {
   const router = useRouter();
 
   const item = dados.find((d) => d.id === Number(id));
-
+  if (!item) return <Redirect href="/interno" />;
   const voltar = () => {
     router.back();
   };
