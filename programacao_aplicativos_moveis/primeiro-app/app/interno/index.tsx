@@ -2,7 +2,6 @@ import { Link, useRouter } from "expo-router";
 import { Text, View, Pressable, Button } from "react-native";
 import { commonStyles } from "../styles/commonStyles";
 import { dados } from "../../dados";
-import { Background } from "@react-navigation/elements";
 
 interface Dado {
   id: number;
