@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { Text, View, Pressable, Animated } from "react-native";
-import { commonStyles } from "./styles/commonStyles";
+import { commonStyles } from "../styles/commonStyles";
 import { useEffect, useRef } from "react";
 
 export default function NotFound() {
@@ -37,7 +37,7 @@ export default function NotFound() {
       <Text style={commonStyles.errorSubtitle}>
         Desculpe, a página que você procura não existe.
       </Text>
-      <Link href="/interno" asChild replace>
+      <Link href="/" asChild replace>
         <Pressable style={commonStyles.button}>
           <Text style={commonStyles.buttonText}>Voltar para home</Text>
         </Pressable>
