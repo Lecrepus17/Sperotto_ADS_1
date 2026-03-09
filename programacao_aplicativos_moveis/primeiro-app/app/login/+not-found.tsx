@@ -1,6 +1,6 @@
 import { Link } from "expo-router";
 import { Text, View, Pressable, Animated } from "react-native";
-import { commonStyles } from "../styles/commonStyles";
+import { commonStyles } from "../../../segundo-app/app/styles/commonStyles";
 import { useEffect, useRef } from "react";
 
 export default function NotFound() {

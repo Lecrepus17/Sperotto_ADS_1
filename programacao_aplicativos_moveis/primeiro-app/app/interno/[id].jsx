@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from "react-native";
-import { commonStyles } from "../styles/commonStyles";
+import { commonStyles } from "../../../segundo-app/app/styles/commonStyles";
 import { Link, Redirect, useLocalSearchParams, useRouter } from "expo-router";
 import { dados } from "../../dados";
 

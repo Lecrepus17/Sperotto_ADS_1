@@ -1,5 +1,5 @@
 import { Pressable, Text, View } from "react-native";
-import { commonStyles } from "../styles/commonStyles";
+import { commonStyles } from "../../../segundo-app/app/styles/commonStyles";
 import { Link } from "expo-router";
 
 export default function ListScreen() {

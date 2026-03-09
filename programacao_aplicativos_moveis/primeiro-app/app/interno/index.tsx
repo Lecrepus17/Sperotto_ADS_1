@@ -1,6 +1,6 @@
 import { Link, useRouter } from "expo-router";
 import { Text, View, Pressable, Button } from "react-native";
-import { commonStyles } from "../styles/commonStyles";
+import { commonStyles } from "../../../segundo-app/app/styles/commonStyles";
 import { dados } from "../../dados";
 
 interface Dado {
