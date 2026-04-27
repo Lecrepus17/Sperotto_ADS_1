@@ -41,6 +41,8 @@ Abaixo, a lista de aplicações organizadas por funcionalidade:
 | **♟️ Game (Xadrez)** | Jogo de xadrez funcional para jogar contra a máquina. | [Ver Pasta](./game) |
 | **🏁 Primeiro App** | Introdução à listagem de dados e navegação básica entre páginas. | [Ver Pasta](./primeiro-app) |
 | **🛠️ Segundo App** | Refinamento de conceitos de listagem e estrutura de páginas. | [Ver Pasta](./segundo-app) |
+| **🤖 back-end-expo** | API básica de autenticação. | [Ver Pasta](./back-end-expo) |
+| **👣 app-token** | Uso básico de API de autenticação. | [Ver Pasta](./app-token) |
 
 ---
 
@@ -90,4 +92,4 @@ Sinta-se à vontade para abrir issues ou pull requests para sugestões de melhor
 
 ## 📄 Licença
 
-Este projeto é de uso pessoal e educacional. Desenvolvido por [Pedro Milesi](https://github.com/Lecrepus17) 🚀
+Este projeto é de uso pessoal e educacional. Desenvolvido por [Pedro Eduardo Milesi Sperotto](https://github.com/Lecrepus17) 🚀

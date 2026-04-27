@@ -1,0 +1,14 @@
+@host=http://localhost:3001
+
+### LOGIN
+POST {{host}}/login
+Content-Type: application/json
+
+{
+    "login": "john.doe@example.com",
+    "pwd": "password123"
+}
+
+### DASHBOARD
+GET {{host}}/dashboard
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNzc3MzI5MDI1LCJleHAiOjE3NzczMjk5MjV9.PFnrlwT5K6TC4zRy0PFd-X4CnS5kriGqYLijtD6dO1M
