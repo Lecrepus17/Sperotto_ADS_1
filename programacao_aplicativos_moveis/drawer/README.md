@@ -1,50 +1,76 @@
-# Welcome to your Expo app 👋
+# Drawer App
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Este projeto é um app Expo com navegação em drawer e autenticação simples usando contexto.
 
-## Get started
+## Como usar
 
-1. Install dependencies
+1. Instale as dependências:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Inicie o app:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+3. Use o terminal do Expo para abrir em um emulador Android/iOS ou no Expo Go.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Estrutura principal
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+- `app/index.tsx` — tela de login
+- `app/_layout.tsx` — `AuthProvider` global e configuração de navegação
+- `app/(tabs)/_layout.tsx` — layout do drawer
+- `app/(tabs)/produtos.tsx` — página de produtos
+- `app/(tabs)/carrinho.tsx` — página do carrinho
+- `app/(tabs)/CustomDrawer.tsx` — drawer personalizado com dados do usuário
+- `context/auth.tsx` — contexto de autenticação (`useAuth`)
 
-## Get a fresh project
+## Fluxo do app
 
-When you're ready, run:
+- O usuário faz login em `app/index.tsx`
+- Se o login for bem-sucedido, a navegação redireciona para as telas do drawer
+- O `AuthProvider` mantém `isLogged`, `user`, `login()` e `logout()` disponíveis para todos os componentes
+- Dentro de `CustomDrawer` você pode acessar o usuário com `const { user } = useAuth();`
 
-```bash
-npm run reset-project
-```
+## Rotas do drawer
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- `/produtos` — lista de produtos
+- `/carrinho` — carrinho de compras
 
-## Learn more
+## Dicas úteis
 
-To learn more about developing your project with Expo, look at the following resources:
+- Se `user` aparecer como `null`, verifique se o login foi feito com sucesso.
+- Em componentes, use:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+  ```tsx
+  import { useAuth } from '@/context/auth';
 
-## Join the community
+  const { user, logout } = useAuth();
+  ```
 
-Join our community of developers creating universal apps.
+- Se o drawer não abrir ou a rota não existir, confira os nomes dos arquivos em `app/(tabs)`.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Scripts disponíveis
+
+- `npm start` — inicia o Metro e o Expo Local
+- `npm run android` — inicia no Android (se tiver emulador ou dispositivo conectado)
+- `npm run ios` — inicia no iOS (se tiver simulator disponível)
+- `npm run web` — inicia no navegador
+- `npm run lint` — roda o ESLint
+
+## Dependências principais
+
+- `expo`
+- `expo-router`
+- `@react-navigation/drawer`
+- `@react-navigation/native`
+- `react-native-gesture-handler`
+- `react-native-reanimated`
+- `@expo/vector-icons`
+
+## Observações
+
+Este app usa routing de arquivo do Expo Router e um drawer personalizado. Qualquer componente abaixo de `AuthProvider` pode acessar o usuário logado através do hook `useAuth()`.
