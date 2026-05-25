@@ -43,6 +43,7 @@ Abaixo, a lista de aplicações organizadas por funcionalidade:
 | **🛠️ Segundo App** | Refinamento de conceitos de listagem e estrutura de páginas. | [Ver Pasta](./segundo-app) |
 | **🤖 back-end-expo** | API básica de autenticação. | [Ver Pasta](./back-end-expo) |
 | **👣 app-token** | Uso básico de API de autenticação. | [Ver Pasta](./app-token) |
+| **👣 Drawer** | Uso básico de redirecionamento por list-menu lateral. | [Ver Pasta](./drawer) |
 
 ---
 
