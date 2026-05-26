@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+const AVATAR_SIZE = 100;
 
 export const drawerStyles = StyleSheet.create({
   container: {
@@ -36,6 +37,15 @@ export const drawerStyles = StyleSheet.create({
   menuContainer: {
     flex: 1,
     paddingTop: 20, // Espaço antes de começar os itens do menu
+  },
+  avatar: {
+    width: AVATAR_SIZE, // Tamanho fixo
+    height: AVATAR_SIZE, // Tamanho fixo (igual à largura para um círculo perfeito)
+    borderRadius: AVATAR_SIZE / 2, // A mágica: metade do tamanho para arredondar
+    alignSelf: "center", // Centraliza horizontalmente no container pai (header)
+    marginBottom: 20, // Espaço abaixo do avatar antes do formulário/texto
+    borderWidth: 2, // Opcional: Adiciona uma borda
+    borderColor: "#fff", // Opcional: Cor da borda
   },
   menuButton: {
     flexDirection: "row",
