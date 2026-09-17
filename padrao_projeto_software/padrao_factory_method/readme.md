@@ -7,9 +7,9 @@ Na raiz do projeto, inicialize o Node e instale as dependências de desenvolvime
 
 Bash
 npm init -y
- # Notificação — Padrão Decorator
+ # Notificação — Padrão Factory Method
 
-Este repositório demonstra a aplicação do padrão de projeto **Observer** em Pedidos.
+Este repositório demonstra a aplicação do padrão de projeto **Factory Method** em Pedidos.
 
 
 ## Estrutura de Pastas
@@ -18,7 +18,7 @@ Este repositório demonstra a aplicação do padrão de projeto **Observer** em 
 src/
 ├── abstract/
 ├── class/
-├── interface/
+├── interface/padrao_projeto_software/padrao_factory_method
 └── index.ts
 ```
 

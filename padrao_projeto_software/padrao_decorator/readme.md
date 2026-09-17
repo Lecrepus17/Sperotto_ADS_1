@@ -9,7 +9,7 @@ Bash
 npm init -y
  # Notificação — Padrão Decorator
 
-Este repositório demonstra a aplicação do padrão de projeto **Observer** em Pedidos.
+Este repositório demonstra a aplicação do padrão de projeto **Decorator** em Pedidos.
 
 
 ## Estrutura de Pastas
