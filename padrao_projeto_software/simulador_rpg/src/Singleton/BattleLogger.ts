@@ -16,4 +16,12 @@ export class BattleLogger {
         this.logs.push(registro);
         console.log(registro);
     }
+
+    public getLogs(): string[] {
+        return [...this.logs];
+    }
+
+    public limpar(): void {
+        this.logs = [];
+    }
 }

@@ -1,10 +1,23 @@
 import { BattleLogger } from "../Singleton/BattleLogger";
-import { EstrategiaAtaque } from "./EstrategiaAtaque";
+import { AlvoCombate, EstrategiaAtaque, TipoDano } from "./EstrategiaAtaque";
 
 export class AtaqueFisico implements EstrategiaAtaque {
-    executar(danoBase: number): number {
-        const dano = danoBase + Math.floor(Math.random() * 6);
-        BattleLogger.getInstancia().log(`Ataque físico realizado causando ${dano} de dano.`);
+    getTipo(): TipoDano {
+        return 'FISICO';
+    }
+
+    executar(danoBase: number = 0, alvo?: AlvoCombate): number {
+        const d20 = Math.floor(Math.random() * 20) + 1;
+        let dano = danoBase + d20;
+        const logger = BattleLogger.getInstancia();
+
+        if (alvo && alvo.getTipoAtaque && alvo.getTipoAtaque() === 'PARANORMAL') {
+            dano = Math.max(1, Math.floor(dano / 2));
+            logger.log(`Ataque físico realizado (1d20 = ${d20}). ${alvo.getNome()} é Paranormal (resistente)! Dano reduzido pela metade: ${dano}.`);
+        } else {
+            logger.log(`Ataque físico realizado (1d20 = ${d20}) causando ${dano} de dano.`);
+        }
+
         return dano;
     }
 }

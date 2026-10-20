@@ -1,0 +1,22 @@
+{
+  "expo": {
+    "name": "Simulador RPG Paranormal",
+    "slug": "simulador-rpg",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#0d0618",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0d0618"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
+

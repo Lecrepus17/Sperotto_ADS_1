@@ -1,20 +1,30 @@
 {
   "name": "simulador_rpg",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Simulador de Combate RPG Paranormal com Padrões de Projeto e Expo",
+  "main": "index.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "tsx src/index.ts"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "dev": "tsx src/index.ts",
+    "cli": "tsx src/index.ts"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
+  "dependencies": {
+    "expo": "~52.0.0",
+    "expo-status-bar": "~2.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native": "0.76.7",
+    "react-native-web": "~0.19.13",
+    "@expo/metro-runtime": "~4.0.1"
+  },
   "devDependencies": {
-    "@types/node": "^26.6.4",
-    "ts-node": "^10.9.2",
+    "@babel/core": "^7.25.2",
+    "@types/react": "~18.3.12",
     "tsx": "^4.23.15",
-    "typescript": "^7.0.2"
-  }
+    "typescript": "~5.3.3"
+  },
+  "private": true
 }

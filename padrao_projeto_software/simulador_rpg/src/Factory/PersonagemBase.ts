@@ -1,5 +1,5 @@
 import { Observador } from '../Observer/Observador';
-import { EstrategiaAtaque } from '../Strategy/EstrategiaAtaque';
+import { EstrategiaAtaque, TipoDano } from '../Strategy/EstrategiaAtaque';
 import { Entidade } from './Entidade';
 
 export abstract class PersonagemBase implements Entidade {
@@ -23,13 +23,25 @@ export abstract class PersonagemBase implements Entidade {
     getVida(): number { return this.vida; }
     
     receberDano(dano: number): void {
-        this.vida -= dano;
+        this.vida = Math.max(0, this.vida - dano);
         if (this.vida <= 0) {
             this.notificar(`${this.nome} foi derrotado em combate!`);
         }
     }
 
-    atacar(): number {
-        return this.ataqueStrategy.executar(10);
+    setEstrategia(estrategia: EstrategiaAtaque): void {
+        this.ataqueStrategy = estrategia;
+    }
+
+    getEstrategia(): EstrategiaAtaque {
+        return this.ataqueStrategy;
+    }
+
+    getTipoAtaque(): TipoDano {
+        return this.ataqueStrategy.getTipo();
+    }
+
+    atacar(alvo?: Entidade): number {
+        return this.ataqueStrategy.executar(0, alvo);
     }
 }
