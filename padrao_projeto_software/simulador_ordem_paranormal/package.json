@@ -1,0 +1,31 @@
+{
+  "name": "simulador_ordem_paranormal",
+  "version": "2.0.0",
+  "description": "Simulador Completo de Combate Ordem Paranormal RPG (Offline, Configurável e com 5 Padrões de Projeto)",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start --offline",
+    "start:online": "expo start",
+    "android": "expo start --android --offline",
+    "ios": "expo start --ios --offline",
+    "web": "expo start --web --offline",
+    "dev": "tsx src/index.ts",
+    "cli": "tsx src/index.ts"
+  },
+  "dependencies": {
+    "expo": "~52.0.0",
+    "expo-status-bar": "~2.0.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-native": "0.76.7",
+    "react-native-web": "~0.19.13",
+    "@expo/metro-runtime": "~4.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~18.3.12",
+    "tsx": "^4.23.15",
+    "typescript": "~5.3.3"
+  },
+  "private": true
+}

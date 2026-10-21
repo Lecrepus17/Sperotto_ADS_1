@@ -1,0 +1,21 @@
+{
+  "expo": {
+    "name": "Simulador Ordem Paranormal RPG",
+    "slug": "simulador-ordem-paranormal",
+    "version": "2.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#090410",
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#090410"
+      }
+    },
+    "web": {
+      "bundler": "metro"
+    }
+  }
+}
