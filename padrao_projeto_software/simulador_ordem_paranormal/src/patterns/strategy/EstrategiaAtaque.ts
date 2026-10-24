@@ -4,7 +4,7 @@ import {
   DetalheDecoratorAplicado,
   ElementoOrdem,
   ResultadoAcao,
-} from '../types/Elementos';
+} from '../../types/Elementos';
 
 export interface CombatenteAlvo {
   getId(): string;

@@ -1,4 +1,3 @@
-import { BattleLogger } from '../Singleton/BattleLogger';
 import {
   calcularRelacaoElemental,
   ConfigAcao,
@@ -8,7 +7,8 @@ import {
   ElementoOrdem,
   ResultadoAcao,
   rolarDado,
-} from '../types/Elementos';
+} from '../../types/Elementos';
+import { BattleLogger } from '../singleton/BattleLogger';
 import { CombatenteAlvo, EstrategiaAtaque } from './EstrategiaAtaque';
 
 export class AcaoOrdemStrategy implements EstrategiaAtaque {

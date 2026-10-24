@@ -1,4 +1,4 @@
-import { ResultadoAcao } from '../types/Elementos';
+import { ResultadoAcao } from '../../types/Elementos';
 
 export type CategoriaLog =
   | 'ATAQUE'
@@ -55,7 +55,11 @@ export class BattleLogger {
 
   public registrarResultado(resultado: ResultadoAcao): void {
     let categoria: CategoriaLog = 'ATAQUE';
-    if (resultado.efeito === 'CURA_PV' || resultado.efeito === 'RECUPERAR_PE_SAN' || resultado.efeito === 'BUFF_DEFESA_RD') {
+    if (
+      resultado.efeito === 'CURA_PV' ||
+      resultado.efeito === 'RECUPERAR_PE_SAN' ||
+      resultado.efeito === 'BUFF_DEFESA_RD'
+    ) {
       categoria = 'CURA_BUFF';
     } else if (resultado.critico) {
       categoria = 'CRITICO';

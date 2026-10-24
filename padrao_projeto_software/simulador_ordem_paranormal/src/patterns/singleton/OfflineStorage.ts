@@ -4,13 +4,13 @@ import {
   AMULETOS_PADRAO,
   CRIATURAS_PADRAO,
   REGRAS_PADRAO,
-} from '../data/presetsOrdem';
+} from '../../data/presetsOrdem';
 import {
   ConfigAcao,
   ConfigAmuletoDecorator,
   ConfigCombatente,
   ConfigRegrasMesa,
-} from '../types/Elementos';
+} from '../../types/Elementos';
 
 const STORAGE_KEY = '@ordem_paranormal_simulador_v2_dados';
 

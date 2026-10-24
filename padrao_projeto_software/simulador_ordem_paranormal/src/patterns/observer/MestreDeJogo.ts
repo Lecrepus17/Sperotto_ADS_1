@@ -1,4 +1,4 @@
-import { BattleLogger } from '../Singleton/BattleLogger';
+import { BattleLogger } from '../singleton/BattleLogger';
 import { Observador } from './Observador';
 
 export class MestreDeJogo implements Observador {
