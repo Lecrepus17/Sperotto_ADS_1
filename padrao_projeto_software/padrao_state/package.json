@@ -1,0 +1,25 @@
+{
+  "name": "padrao_state",
+  "version": "1.0.0",
+  "description": "Implementação do Padrão State para Sistema de Gerenciamento de Pedidos de E-commerce",
+  "main": "src/main.ts",
+  "scripts": {
+    "start": "tsx src/main.ts",
+    "dev": "tsx watch src/main.ts",
+    "test": "tsx src/main.ts"
+  },
+  "keywords": [
+    "design-patterns",
+    "state-pattern",
+    "typescript",
+    "gof"
+  ],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.5.0"
+  }
+}
