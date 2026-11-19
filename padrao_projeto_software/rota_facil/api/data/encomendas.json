@@ -1,0 +1,317 @@
+{
+  "encomendas": [
+    {
+      "id": "enc-80b66139",
+      "codigo": "AAAA",
+      "cliente": "aaaaaaaaaaaaaaaaaaaa",
+      "contatoCliente": "aaaaaaaaaaaaaaa",
+      "origem": "Centro - Depósito RotaFácilaaaaaaaaaaaaaaa",
+      "destino": "aaaaaaaaaaaaa",
+      "pesoKg": 2.5,
+      "valorDeclarado": 150,
+      "modalidade": "EXPRESSA",
+      "adicionais": [
+        "FRAGIL",
+        "SEGURO"
+      ],
+      "taxaEntrega": 56,
+      "prazoHoras": 7,
+      "composicaoFrete": [
+        {
+          "nome": "Entrega Expressa",
+          "valor": 38,
+          "detalhe": "Base R$ 28.00 + 2.5 kg × R$ 4.00/kg"
+        },
+        {
+          "nome": "Embalagem Frágil",
+          "valor": 12,
+          "detalhe": "Proteção reforçada (+1h de preparo cuidadoso)"
+        },
+        {
+          "nome": "Seguro de Carga",
+          "valor": 6,
+          "detalhe": "3% sobre R$ 150.00 (mínimo R$ 6,00)"
+        }
+      ],
+      "status": "ENTREGUE",
+      "criadaEm": "2026-11-19T22:34:47.862Z",
+      "atualizadaEm": "2026-11-19T22:34:51.644Z"
+    },
+    {
+      "id": "enc-1001",
+      "codigo": "RF-2026-001",
+      "cliente": "Mariana Souza",
+      "contatoCliente": "(51) 99812-3401",
+      "origem": "Centro - Depósito RotaFácil",
+      "destino": "Bairro Moinhos de Vento, 420",
+      "pesoKg": 3.5,
+      "valorDeclarado": 450,
+      "modalidade": "EXPRESSA",
+      "adicionais": [
+        "SEGURO",
+        "URGENCIA"
+      ],
+      "taxaEntrega": 73.5,
+      "prazoHoras": 3,
+      "composicaoFrete": [
+        {
+          "nome": "Entrega Expressa",
+          "valor": 42,
+          "detalhe": "Base R$ 28.00 + 3.5 kg × R$ 4.00/kg"
+        },
+        {
+          "nome": "Seguro de Carga",
+          "valor": 13.5,
+          "detalhe": "3% sobre R$ 450.00 (mínimo R$ 6,00)"
+        },
+        {
+          "nome": "Prioridade / Urgência",
+          "valor": 18,
+          "detalhe": "Saída prioritária (reduz o prazo pela metade, mínimo 1h)"
+        }
+      ],
+      "status": "CANCELADA",
+      "criadaEm": "2026-11-19T20:30:03.576Z",
+      "atualizadaEm": "2026-11-19T22:34:54.158Z"
+    },
+    {
+      "id": "enc-1002",
+      "codigo": "RF-2026-002",
+      "cliente": "Carlos Henrique Lima",
+      "contatoCliente": "(51) 99104-8820",
+      "origem": "Bairro Floresta - Loja Parceira",
+      "destino": "Bairro Menino Deus, 118",
+      "pesoKg": 6,
+      "valorDeclarado": 180,
+      "modalidade": "PADRAO",
+      "adicionais": [
+        "FRAGIL"
+      ],
+      "taxaEntrega": 42,
+      "prazoHoras": 25,
+      "composicaoFrete": [
+        {
+          "nome": "Entrega Padrão",
+          "valor": 30,
+          "detalhe": "Base R$ 15.00 + 6.0 kg × R$ 2.50/kg"
+        },
+        {
+          "nome": "Embalagem Frágil",
+          "valor": 12,
+          "detalhe": "Proteção reforçada (+1h de preparo cuidadoso)"
+        }
+      ],
+      "status": "CANCELADA",
+      "criadaEm": "2026-11-19T22:00:03.576Z",
+      "atualizadaEm": "2026-11-19T22:34:55.782Z"
+    },
+    {
+      "id": "enc-1003",
+      "codigo": "RF-2026-003",
+      "cliente": "Fernanda Alves",
+      "contatoCliente": "(51) 98455-1099",
+      "origem": "Centro - Balcão Principal",
+      "destino": "Retirada no Balcão - Unidade Centro",
+      "pesoKg": 1.2,
+      "valorDeclarado": 95,
+      "modalidade": "BALCAO",
+      "adicionais": [],
+      "taxaEntrega": 5,
+      "prazoHoras": 2,
+      "composicaoFrete": [
+        {
+          "nome": "Retirada no Balcão",
+          "valor": 5,
+          "detalhe": "Taxa fixa de separação no balcão"
+        }
+      ],
+      "status": "ENTREGUE",
+      "criadaEm": "2026-11-19T20:30:03.576Z",
+      "atualizadaEm": "2026-11-19T22:20:03.576Z"
+    },
+    {
+      "id": "enc-1004",
+      "codigo": "RF-2026-004",
+      "cliente": "Roberto Mendes",
+      "contatoCliente": "(51) 99700-4412",
+      "origem": "Bairro Santana",
+      "destino": "Bairro Petrópolis, 890",
+      "pesoKg": 2,
+      "valorDeclarado": 120,
+      "modalidade": "PADRAO",
+      "adicionais": [],
+      "taxaEntrega": 20,
+      "prazoHoras": 24,
+      "composicaoFrete": [
+        {
+          "nome": "Entrega Padrão",
+          "valor": 20,
+          "detalhe": "Base R$ 15.00 + 2.0 kg × R$ 2.50/kg"
+        }
+      ],
+      "status": "CANCELADA",
+      "criadaEm": "2026-11-19T21:30:03.576Z",
+      "atualizadaEm": "2026-11-19T22:20:03.576Z"
+    }
+  ],
+  "auditoria": [
+    {
+      "id": "aud-6f1aab88",
+      "tipoEvento": "STATUS_ALTERADO",
+      "encomendaId": "enc-1002",
+      "codigoEncomenda": "RF-2026-002",
+      "cliente": "Carlos Henrique Lima",
+      "statusAnterior": "PENDENTE",
+      "statusNovo": "CANCELADA",
+      "resumo": "Status alterado de PENDENTE para CANCELADA.",
+      "ocorridoEm": "2026-11-19T22:34:55.782Z"
+    },
+    {
+      "id": "aud-1f8c1e1b",
+      "tipoEvento": "STATUS_ALTERADO",
+      "encomendaId": "enc-1001",
+      "codigoEncomenda": "RF-2026-001",
+      "cliente": "Mariana Souza",
+      "statusAnterior": "EM_ROTA",
+      "statusNovo": "CANCELADA",
+      "resumo": "Status alterado de EM_ROTA para CANCELADA.",
+      "ocorridoEm": "2026-11-19T22:34:54.158Z"
+    },
+    {
+      "id": "aud-5121b03d",
+      "tipoEvento": "STATUS_ALTERADO",
+      "encomendaId": "enc-80b66139",
+      "codigoEncomenda": "AAAA",
+      "cliente": "aaaaaaaaaaaaaaaaaaaa",
+      "statusAnterior": "EM_ROTA",
+      "statusNovo": "ENTREGUE",
+      "resumo": "Status alterado de EM_ROTA para ENTREGUE.",
+      "ocorridoEm": "2026-11-19T22:34:51.644Z"
+    },
+    {
+      "id": "aud-0b8f91d1",
+      "tipoEvento": "STATUS_ALTERADO",
+      "encomendaId": "enc-80b66139",
+      "codigoEncomenda": "AAAA",
+      "cliente": "aaaaaaaaaaaaaaaaaaaa",
+      "statusAnterior": "PENDENTE",
+      "statusNovo": "EM_ROTA",
+      "resumo": "Status alterado de PENDENTE para EM_ROTA.",
+      "ocorridoEm": "2026-11-19T22:34:50.646Z"
+    },
+    {
+      "id": "aud-56fafbbe",
+      "tipoEvento": "ENCOMENDA_CRIADA",
+      "encomendaId": "enc-80b66139",
+      "codigoEncomenda": "AAAA",
+      "cliente": "aaaaaaaaaaaaaaaaaaaa",
+      "statusNovo": "PENDENTE",
+      "resumo": "Encomenda AAAA cadastrada (EXPRESSA) para aaaaaaaaaaaaaaaaaaaa — Taxa R$ 56.00, prazo 7h.",
+      "ocorridoEm": "2026-11-19T22:34:47.862Z"
+    },
+    {
+      "id": "aud-seed-01",
+      "tipoEvento": "STATUS_ALTERADO",
+      "encomendaId": "enc-1003",
+      "codigoEncomenda": "RF-2026-003",
+      "cliente": "Fernanda Alves",
+      "statusAnterior": "EM_ROTA",
+      "statusNovo": "ENTREGUE",
+      "resumo": "Status alterado de EM_ROTA para ENTREGUE — Obs: Retirada confirmada no balcão.",
+      "ocorridoEm": "2026-11-19T22:20:03.576Z"
+    },
+    {
+      "id": "aud-seed-02",
+      "tipoEvento": "ENCOMENDA_CRIADA",
+      "encomendaId": "enc-1002",
+      "codigoEncomenda": "RF-2026-002",
+      "cliente": "Carlos Henrique Lima",
+      "statusNovo": "PENDENTE",
+      "resumo": "Encomenda RF-2026-002 cadastrada (PADRAO) para Carlos Henrique Lima — Taxa R$ 42.00, prazo 25h.",
+      "ocorridoEm": "2026-11-19T22:00:03.576Z"
+    },
+    {
+      "id": "aud-seed-03",
+      "tipoEvento": "STATUS_ALTERADO",
+      "encomendaId": "enc-1001",
+      "codigoEncomenda": "RF-2026-001",
+      "cliente": "Mariana Souza",
+      "statusAnterior": "PENDENTE",
+      "statusNovo": "EM_ROTA",
+      "resumo": "Status alterado de PENDENTE para EM_ROTA — Obs: Motoboy João iniciou rota.",
+      "ocorridoEm": "2026-11-19T21:30:03.576Z"
+    }
+  ],
+  "notificacoes": [
+    {
+      "id": "not-df02261b",
+      "encomendaId": "enc-1002",
+      "codigoEncomenda": "RF-2026-002",
+      "destinatario": "Carlos Henrique Lima",
+      "contato": "(51) 99104-8820",
+      "canal": "SMS",
+      "mensagem": "Atenção, Carlos Henrique Lima: a encomenda RF-2026-002 foi cancelada. Em caso de dúvida, fale com nossa central.",
+      "enviadaEm": "2026-11-19T22:34:55.782Z"
+    },
+    {
+      "id": "not-adb6d1fb",
+      "encomendaId": "enc-1001",
+      "codigoEncomenda": "RF-2026-001",
+      "destinatario": "Mariana Souza",
+      "contato": "(51) 99812-3401",
+      "canal": "WhatsApp",
+      "mensagem": "Atenção, Mariana Souza: a encomenda RF-2026-001 foi cancelada. Em caso de dúvida, fale com nossa central.",
+      "enviadaEm": "2026-11-19T22:34:54.158Z"
+    },
+    {
+      "id": "not-e6a0acb1",
+      "encomendaId": "enc-80b66139",
+      "codigoEncomenda": "AAAA",
+      "destinatario": "aaaaaaaaaaaaaaaaaaaa",
+      "contato": "aaaaaaaaaaaaaaa",
+      "canal": "WhatsApp",
+      "mensagem": "Entrega confirmada! A encomenda AAAA foi entregue com sucesso em aaaaaaaaaaaaa. Obrigado por escolher a RotaFácil!",
+      "enviadaEm": "2026-11-19T22:34:51.644Z"
+    },
+    {
+      "id": "not-f78023ea",
+      "encomendaId": "enc-80b66139",
+      "codigoEncomenda": "AAAA",
+      "destinatario": "aaaaaaaaaaaaaaaaaaaa",
+      "contato": "aaaaaaaaaaaaaaa",
+      "canal": "WhatsApp",
+      "mensagem": "Olá, aaaaaaaaaaaaaaaaaaaa! Sua encomenda AAAA saiu para entrega rumo a aaaaaaaaaaaaa.",
+      "enviadaEm": "2026-11-19T22:34:50.646Z"
+    },
+    {
+      "id": "not-02f7b579",
+      "encomendaId": "enc-80b66139",
+      "codigoEncomenda": "AAAA",
+      "destinatario": "aaaaaaaaaaaaaaaaaaaa",
+      "contato": "aaaaaaaaaaaaaaa",
+      "canal": "WhatsApp",
+      "mensagem": "Olá, aaaaaaaaaaaaaaaaaaaa! Sua encomenda AAAA foi registrada na RotaFácil. Prazo estimado: 7h.",
+      "enviadaEm": "2026-11-19T22:34:47.862Z"
+    },
+    {
+      "id": "not-seed-01",
+      "encomendaId": "enc-1003",
+      "codigoEncomenda": "RF-2026-003",
+      "destinatario": "Fernanda Alves",
+      "contato": "(51) 98455-1099",
+      "canal": "SMS",
+      "mensagem": "Entrega confirmada! A encomenda RF-2026-003 foi entregue com sucesso em Retirada no Balcão - Unidade Centro. Obrigado por escolher a RotaFácil!",
+      "enviadaEm": "2026-11-19T22:20:03.576Z"
+    },
+    {
+      "id": "not-seed-02",
+      "encomendaId": "enc-1001",
+      "codigoEncomenda": "RF-2026-001",
+      "destinatario": "Mariana Souza",
+      "contato": "(51) 99812-3401",
+      "canal": "WhatsApp",
+      "mensagem": "Olá, Mariana Souza! Sua encomenda RF-2026-001 saiu para entrega rumo a Bairro Moinhos de Vento, 420.",
+      "enviadaEm": "2026-11-19T21:30:03.576Z"
+    }
+  ]
+}

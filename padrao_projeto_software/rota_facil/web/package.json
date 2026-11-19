@@ -1,0 +1,27 @@
+{
+  "name": "rota-facil-web",
+  "version": "1.0.0",
+  "description": "Interface Web em Expo para o sistema de gestão de encomendas e despachos RotaFácil",
+  "main": "index.ts",
+  "scripts": {
+    "start": "expo start",
+    "web": "expo start --web",
+    "web:offline": "expo start --web --offline",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@expo/metro-runtime": "~58.0.15",
+    "expo": "~58.0.17",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.0",
+    "react-native-web": "^0.21.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@types/react": "~19.3.0",
+    "typescript": "~5.8.3"
+  },
+  "private": true
+}
